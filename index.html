@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="hi" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHAURYA ENTERPRISES - Official Portal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- QR Code Generator Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <style>
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; color: black !important; }
+            .print-container { box-shadow: none !important; border: none !important; width: 100% !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-300 font-sans">
+
+    <!-- Top Header Bar -->
+    <header class="bg-indigo-700 text-white shadow-md sticky top-0 z-50 no-print">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-3">
+            <!-- Brand Logo & Name -->
+            <div class="flex items-center gap-3">
+                <div class="bg-white text-indigo-700 p-2.5 rounded-xl shadow-inner font-bold text-xl flex items-center justify-center w-11 h-11">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-black tracking-wider uppercase">SHAURYA ENTERPRISES</h1>
+                    <p class="text-xs text-indigo-200"><i class="fa-solid fa-location-dot mr-1"></i> Noida, Near Sunday Market (Pin: 201301)</p>
+                </div>
+            </div>
+
+            <!-- Action Controls: Theme, Language, Print, Quick Contacts -->
+            <div class="flex items-center flex-wrap gap-2">
+                <!-- A4 Print / PDF Button -->
+                <button onclick="window.print()" class="bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-print"></i> A4 Print/PDF
+                </button>
+                <!-- Language Toggle -->
+                <button onclick="toggleLanguage()" id="langBtn" class="bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg text-xs font-semibold transition">
+                    🌐 हिन्दी / English
+                </button>
+                <!-- Dark/Light Mode Toggle -->
+                <button onclick="toggleTheme()" class="bg-white/10 hover:bg-white/20 p-2 rounded-lg text-sm transition">
+                    <i id="themeIcon" class="fa-solid fa-moon"></i>
+                </button>
+                <!-- WhatsApp Quick Link -->
+                <a href="https://wa.me/919250525720" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 shadow">
+                    <i class="fa-brands fa-whatsapp text-sm"></i> Chat
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 py-6 flex-grow w-full print-container">
+        
+        <!-- Welcome Banner & Cloud Status -->
+        <div class="bg-gradient-to-r from-indigo-600 to-blue-600 text-white rounded-2xl p-6 shadow-xl mb-8 relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl">
+                <i class="fa-solid fa-building-shield"></i>
+            </div>
+            <div class="relative z-10">
+                <span class="bg-white/20 text-white text-xs px-3 py-1 rounded-full font-medium inline-block mb-3">
+                    <i class="fa-solid fa-cloud-arrow-up mr-1 text-emerald-300"></i> Cloud Sync Active (ntfy.sh)
+                </span>
+                <h2 class="text-2xl md:text-3xl font-extrabold mb-2" data-i18n="bannerTitle">Welcome to Shaurya Enterprises Portal</h2>
+                <p class="text-indigo-100 text-sm md:text-base max-w-3xl mb-4" data-i18n="bannerDesc">
+                    Trusted Multi-Service Digital Hub. Get instant access to Loan Services, Online Pharmacy, and earn Reward Coins on every transaction! (<span class="font-bold text-amber-300">4 Coins = ₹1</span>)
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <a href="https://rhlsig.github.io/RNS-FINANCE/" target="_blank" class="bg-white text-indigo-700 hover:bg-indigo-50 font-bold px-4 py-2 rounded-xl text-sm shadow flex items-center gap-2 transition">
+                        <i class="fa-solid fa-hand-holding-dollar text-indigo-600"></i> RNS Finance Portal <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                    <a href="https://rhlsig.github.io/RNS-PHARMACY/" target="_blank" class="bg-emerald-500 hover:bg-emerald-400 text-white font-bold px-4 py-2 rounded-xl text-sm shadow flex items-center gap-2 transition">
+                        <i class="fa-solid fa-pills"></i> RNS Pharmacy Store <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs: Customer Login/Register vs Owner Portal -->
+        <div class="flex border-b border-slate-200 dark:border-slate-700 mb-6 no-print">
+            <button onclick="switchTab('customer')" id="tabCustomerBtn" class="py-3 px-6 font-bold text-sm border-b-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 flex items-center gap-2 transition">
+                <i class="fa-solid fa-user-shield"></i> Customer Portal
+            </button>
+            <button onclick="switchTab('owner')" id="tabOwnerBtn" class="py-3 px-6 font-bold text-sm text-slate-500 hover:text-indigo-600 border-b-2 border-transparent flex items-center gap-2 transition">
+                <i class="fa-solid fa-lock"></i> Owner Portal (Admin)
+            </button>
+        </div>
+
+        <!-- ==================== CUSTOMER PORTAL SECTION ==================== -->
+        <div id="customerSection" class="space-y-6">
+            <!-- Auth Card (Login / Register) -->
+            <div id="authCard" class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-md border border-slate-200 dark:border-slate-700 max-w-xl mx-auto">
+                <div class="text-center mb-6">
+                    <h3 class="text-xl font-bold" data-i18n="authHeading">Customer Login & Registration</h3>
+                    <p class="text-xs text-slate-500 mt-1" data-i18n="authSub">Enter your 10-digit mobile number to access your wallet & points</p>
+                </div>
+
+                <!-- Login Form -->
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider mb-1 text-slate-500" data-i18n="mobileLabel">Mobile Number</label>
+                        <div class="flex">
+                            <span class="bg-slate-100 dark:bg-slate-700 border border-r-0 border-slate-300 dark:border-slate-600 px-3 py-2.5 rounded-l-xl text-sm font-bold text-slate-600 dark:text-slate-300">+91</span>
+                            <input type="tel" id="loginMobile" maxlength="10" placeholder="9876543210" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-4 py-2.5 rounded-r-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                    </div>
+                    <button onclick="handleCustomerLogin()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl shadow transition text-sm flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-right-to-bracket"></i> Login / Register Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Registration Modal / Form (Hidden by default, shown if new user) -->
+            <div id="registerModal" class="hidden bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-xl border border-indigo-200 dark:border-indigo-900 max-w-xl mx-auto">
+                <div class="text-center mb-4">
+                    <span class="bg-amber-100 text-amber-800 text-xs px-3 py-1 rounded-full font-bold">New Registration</span>
+                    <h3 class="text-xl font-bold mt-2">Complete Your Profile</h3>
+                    <p class="text-xs text-slate-500">You are registering a new account. Please fill details.</p>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase mb-1 text-slate-500">Full Name</label>
+                        <input type="text" id="regName" placeholder="Enter Full Name" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-4 py-2.5 rounded-xl text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase mb-1 text-slate-500">ID Number (Aadhaar / Voter ID)</label>
+                        <input type="text" id="regIdNum" placeholder="Enter ID Number" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-4 py-2.5 rounded-xl text-sm">
+                    </div>
+                    <div class="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 text-center">
+                        <p class="text-xs font-semibold text-slate-600 dark:text-slate-400 mb-2">Registration Fee Scan & Pay</p>
+                        <div id="qrcodeContainer" class="flex justify-center mb-2 bg-white p-2 rounded-lg inline-block"></div>
+                        <p class="text-xs font-bold text-indigo-600">Amount: ₹<span id="displayRegFee">10</span></p>
+                        <p class="text-[11px] text-slate-400 mt-1">UPI ID: Q708238096@ybl</p>
+                    </div>
+                    <div class="flex gap-3">
+                        <button onclick="submitRegistration(true)" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-sm shadow">
+                            <i class="fa-solid fa-check mr-1"></i> Paid (QR Scanned)
+                        </button>
+                        <button onclick="submitRegistration(false)" class="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-bold py-2.5 rounded-xl text-sm shadow">
+                            <i class="fa-solid fa-clock mr-1"></i> Not Paid Yet
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Dashboard (Shown after Login) -->
+            <div id="customerDashboard" class="hidden space-y-6">
+                <!-- User Info & Wallet Card -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow border border-slate-200 dark:border-slate-700 md:col-span-2 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <span class="text-xs text-emerald-600 dark:text-emerald-400 font-bold uppercase tracking-wider">Active Customer</span>
+                                    <h3 class="text-2xl font-black mt-1" id="custProfileName">Rahul Singh</h3>
+                                    <p class="text-xs text-slate-400 mt-0.5">Mobile: <span id="custProfileMobile">+91 9876543210</span> | ID: <span id="custProfileId">1234-5678-9012</span></p>
+                                </div>
+                                <button onclick="logoutCustomer()" class="text-rose-500 hover:text-rose-700 text-xs font-bold bg-rose-50 dark:bg-rose-950/40 px-3 py-1.5 rounded-lg">
+                                    <i class="fa-solid fa-right-from-bracket mr-1"></i> Logout
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-700 flex flex-wrap gap-4 justify-between items-center">
+                            <div>
+                                <p class="text-xs text-slate-400">Registration Fee Status</p>
+                                <span id="custFeeStatusBadge" class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 mt-1 inline-block">Paid (₹10)</span>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-xs text-slate-400">Quick Services</p>
+                                <div class="flex gap-2 mt-1">
+                                    <a href="https://rhlsig.github.io/RNS-FINANCE/" target="_blank" class="bg-indigo-600 text-white text-xs px-3 py-1.5 rounded-lg font-bold">Apply Loan Here</a>
+                                    <a href="https://rhlsig.github.io/RNS-PHARMACY/" target="_blank" class="bg-emerald-600 text-white text-xs px-3 py-1.5 rounded-lg font-bold">Order Medicine</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wallet & Coins Box -->
+                    <div class="bg-gradient-to-br from-amber-500 to-orange-600 text-white p-6 rounded-2xl shadow-lg flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs font-bold uppercase tracking-wider bg-black/20 px-2.5 py-1 rounded-lg">Loyalty Wallet</span>
+                                <i class="fa-solid fa-coins text-2xl text-amber-200"></i>
+                            </div>
+                            <h4 class="text-4xl font-black mt-4"><span id="custWalletPoints">20</span> <span class="text-lg font-medium">Coins</span></h4>
+                            <p class="text-xs text-amber-100 mt-1">Equivalent Value: ₹<span id="custWalletRupees">5.00</span></p>
+                        </div>
+                        <p class="text-[11px] bg-black/10 p-2 rounded-xl mt-4">💡 Rule: 4 Coins = ₹1. Redeemable on loans & pharmacy purchases.</p>
+                    </div>
+                </div>
+
+                <!-- Transaction History & Statement Download -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow border border-slate-200 dark:border-slate-700">
+                    <div class="flex flex-wrap justify-between items-center gap-4 mb-4">
+                        <h4 class="font-bold text-lg"><i class="fa-solid fa-clock-rotate-left mr-2 text-indigo-600"></i> Latest 5 Transactions</h4>
+                        <div class="flex gap-2">
+                            <select id="historyDuration" class="bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-3 py-1.5 rounded-xl text-xs">
+                                <option value="1">1 Month History</option>
+                                <option value="2">2 Months History</option>
+                            </select>
+                            <button onclick="downloadCustomerHistory()" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow flex items-center gap-1.5">
+                                <i class="fa-solid fa-download"></i> Download CSV
+                            </button>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm">
+                            <thead class="bg-slate-50 dark:bg-slate-900 text-slate-500 uppercase text-xs">
+                                <tr>
+                                    <th class="p-3">Date</th>
+                                    <th class="p-3">Description / Note</th>
+                                    <th class="p-3">Coins Added/Deducted</th>
+                                    <th class="p-3">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="customerTxTableBody" class="divide-y divide-slate-100 dark:divide-slate-700">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== OWNER PORTAL SECTION ==================== -->
+        <div id="ownerSection" class="hidden space-y-6">
+            <!-- Owner Security Pin / Overview Banner -->
+            <div class="bg-slate-800 text-white p-6 rounded-2xl shadow-xl flex flex-wrap justify-between items-center gap-4">
+                <div>
+                    <span class="bg-indigo-600 text-xs px-3 py-1 rounded-full font-bold uppercase">Admin Dashboard</span>
+                    <h3 class="text-2xl font-black mt-2">Shaurya Enterprises Control Panel</h3>
+                    <p class="text-xs text-slate-400 mt-1">Manage customer points, adjust registration fees, and broadcast instant WhatsApp/SMS updates.</p>
+                </div>
+                <div class="bg-slate-700 p-4 rounded-xl flex items-center gap-4 border border-slate-600">
+                    <div>
+                        <p class="text-xs text-slate-400">Registration Fee Setting</p>
+                        <div class="flex items-center gap-2 mt-1">
+                            <select id="ownerFeeSetting" onchange="updateRegistrationFeeSetting()" class="bg-slate-800 border border-slate-500 px-3 py-1.5 rounded-lg text-sm font-bold text-white">
+                                <option value="10">₹10</option>
+                                <option value="20">₹20</option>
+                                <option value="30">₹30</option>
+                                <option value="50">₹50</option>
+                            </select>
+                            <span class="text-xs text-emerald-400 font-semibold">Active</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Two Separate Admin Modules as Requested -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                
+                <!-- Module 1: Customer Directory & Point Adjuster -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold text-lg"><i class="fa-solid fa-users-gear mr-2 text-indigo-600"></i> Customer Directory & Points</h4>
+                            <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 text-xs font-bold px-2.5 py-1 rounded-full" id="totalCustomerCount">0 Registered</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-4">Click on any customer card below to open point adjuster popup (Add/Delete coins with audit note).</p>
+                        
+                        <!-- Customer List Container -->
+                        <div id="ownerCustomerList" class="space-y-3 max-h-96 overflow-y-auto pr-1">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 2: Smart Broadcast & Message Dispatcher -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold text-lg"><i class="fa-solid fa-bullhorn mr-2 text-emerald-600"></i> Broadcast Message Center</h4>
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-full">WhatsApp & SMS</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-4">Select a broadcast template and dispatch messages instantly to any customer.</p>
+                        
+                        <!-- Template Selector -->
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase mb-1 text-slate-500">Select Message Template</label>
+                                <select id="broadcastTemplateSelect" onchange="loadBroadcastTemplate()" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-4 py-2.5 rounded-xl text-sm">
+                                    <option value="loan">Loan Services Offer (Instant Approval)</option>
+                                    <option value="pharmacy">Online Pharmacy Discount (Special Offer)</option>
+                                    <option value="recharge">Money Transfer & Recharge Update</option>
+                                    <option value="custom">Custom Message</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase mb-1 text-slate-500">Editable Message Preview</label>
+                                <textarea id="broadcastMessageBox" rows="4" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 p-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                            </div>
+
+                            <!-- Quick Dispatch List -->
+                            <div>
+                                <label class="block text-xs font-semibold uppercase mb-2 text-slate-500">Send to Customer via WhatsApp/SMS</label>
+                                <div id="broadcastCustomerList" class="space-y-2 max-h-48 overflow-y-auto pr-1 border border-slate-200 dark:border-slate-700 p-3 rounded-xl bg-slate-50 dark:bg-slate-900">
+                                    <!-- Populated dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ==================== FEEDBACK SECTION ==================== -->
+        <div class="mt-8 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow border border-slate-200 dark:border-slate-700">
+            <div class="flex justify-between items-center mb-4">
+                <h4 class="font-bold text-lg"><i class="fa-solid fa-comments mr-2 text-amber-500"></i> Customer Feedback & Reviews</h4>
+                <button onclick="openFeedbackModal()" class="bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold px-3 py-1.5 rounded-xl shadow">
+                    <i class="fa-solid fa-plus mr-1"></i> Give Feedback
+                </button>
+            </div>
+            
+            <!-- Latest 3 Feedbacks Display -->
+            <div id="latestFeedbacksGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Populated dynamically -->
+            </div>
+            <div class="text-center mt-4">
+                <button onclick="openAllFeedbackModal()" class="text-indigo-600 dark:text-indigo-400 text-xs font-bold hover:underline">
+                    View More Reviews (<span id="totalFeedbackCount">0</span> total) <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Point Adjustment Modal Popup (Owner) -->
+    <div id="pointModal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 max-w-md w-full shadow-2xl border border-slate-200 dark:border-slate-700">
+            <h3 class="text-lg font-bold mb-2">Adjust Points for <span id="modalCustName" class="text-indigo-600">Customer</span></h3>
+            <p class="text-xs text-slate-500 mb-4">Current Points: <span id="modalCurrentPoints" class="font-bold">0</span></p>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase mb-1 text-slate-500">Action Type</label>
+                    <select id="modalActionType" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-4 py-2 rounded-xl text-sm">
+                        <option value="add">Add Points (+)</option>
+                        <option value="deduct">Deduct Points (-)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase mb-1 text-slate-500">Points Amount</label>
+                    <input type="number" id="modalPointsVal" value="10" min="1" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-4 py-2 rounded-xl text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase mb-1 text-slate-500">Audit Note / Reason</label>
+                    <input type="text" id="modalAuditNote" placeholder="e.g. Bill payment discount, Recharge bonus" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-4 py-2 rounded-xl text-sm">
+                </div>
+                <div class="flex gap-3 pt-2">
+                    <button onclick="savePointAdjustment()" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 rounded-xl text-sm shadow">Save Changes</button>
+                    <button onclick="closePointModal()" class="bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white font-bold px-4 py-2.5 rounded-xl text-sm">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Modal Popup -->
+    <div id="feedbackModal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 max-w-md w-full shadow-2xl border border-slate-200 dark:border-slate-700">
+            <h3 class="text-lg font-bold mb-4">Submit Your Feedback</h3>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase mb-1 text-slate-500">Your Name</label>
+                    <input type="text" id="fbName" placeholder="Enter Name" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-4 py-2 rounded-xl text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase mb-1 text-slate-500">Mobile Number</label>
+                    <input type="tel" id="fbMobile" maxlength="10" placeholder="Mobile Number" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-4 py-2 rounded-xl text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase mb-1 text-slate-500">Rating (1 to 5 Stars)</label>
+                    <select id="fbRating" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-4 py-2 rounded-xl text-sm">
+                        <option value="5">⭐⭐⭐⭐⭐ (5/5 Excellent)</option>
+                        <option value="4">⭐⭐⭐⭐ (4/5 Very Good)</option>
+                        <option value="3">⭐⭐⭐ (3/5 Good)</option>
+                        <option value="2">⭐⭐ (2/5 Fair)</option>
+                        <option value="1">⭐ (1/5 Poor)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase mb-1 text-slate-500">Review Note</label>
+                    <textarea id="fbNote" rows="3" placeholder="Write your feedback here..." class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 p-3 rounded-xl text-sm"></textarea>
+                </div>
+                <div class="flex gap-3 pt-2">
+                    <button onclick="submitFeedback()" class="flex-1 bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 rounded-xl text-sm shadow">Submit Review</button>
+                    <button onclick="closeFeedbackModal()" class="bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white font-bold px-4 py-2.5 rounded-xl text-sm">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 mt-auto border-t border-slate-800 no-print">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
+            <p class="text-sm font-bold text-slate-200">© 2026 SHAURYA ENTERPRISES. All Rights Reserved.</p>
+            <p class="text-xs text-slate-500">Noida, Near Sunday Market, Uttar Pradesh (Pin: 201301) | Contact: +91-9250525720</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // State Management
+        let appState = {
+            lang: 'en',
+            currentUserMobile: null,
+            regFee: 10,
+            customers: JSON.parse(localStorage.getItem('shaurya_customers')) || [
+                { mobile: '9876543210', name: 'Rahul Singh', idNum: 'ADH-8892', points: 45, feePaid: true, history: [{date: '2026-11-01', note: 'Welcome Bonus', points: 20}, {date: '2026-11-05', note: 'Recharge Cashback', points: 25}] },
+                { mobile: '9123456789', name: 'Amit Kumar', idNum: 'ADH-4412', points: 15, feePaid: true, history: [{date: '2026-11-02', note: 'Welcome Bonus', points: 15}] }
+            ],
+            feedbacks: JSON.parse(localStorage.getItem('shaurya_feedbacks')) || [
+                { name: 'Sanjay Verma', mobile: '9988776655', rating: 5, note: 'Very fast loan processing and excellent pharmacy service!', date: '2026-11-05' },
+                { name: 'Priya Sharma', mobile: '9811223344', rating: 5, note: 'Loyalty coins system is amazing. 4 coins = 1 rupee discount is great.', date: '2026-11-04' },
+                { name: 'Rajesh Gupta', mobile: '9722334455', rating: 4, note: 'Good customer portal and instant WhatsApp messaging.', date: '2026-11-03' }
+            ]
+        };
+
+        const NTFY_TOPIC = 'shaurya_enterprises_portal_2026';
+
+        function saveToStorage() {
+            localStorage.setItem('shaurya_customers', JSON.stringify(appState.customers));
+            localStorage.setItem('shaurya_feedbacks', JSON.stringify(appState.feedbacks));
+            // Trigger ntfy cloud sync simulation
+            fetch(`https://ntfy.sh/${NTFY_TOPIC}`, {
+                method: 'POST',
+                body: JSON.stringify({ type: 'SYNC', timestamp: new Date().toISOString() })
+            }).catch(e => console.log('Cloud sync note:', e));
+        }
+
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                html.classList.add('light');
+                icon.className = 'fa-solid fa-moon';
+            } else {
+                html.classList.remove('light');
+                html.classList.add('dark');
+                icon.className = 'fa-solid fa-sun';
+            }
+        }
+
+        // Language Toggle
+        function toggleLanguage() {
+            appState.lang = appState.lang === 'en' ? 'hi' : 'en';
+            alert(appState.lang === 'hi' ? 'भाषा बदलकर हिंदी कर दी गई है।' : 'Language switched to English.');
+        }
+
+        // Tab Switching
+        function switchTab(tab) {
+            const custBtn = document.getElementById('tabCustomerBtn');
+            const ownerBtn = document.getElementById('tabOwnerBtn');
+            const custSec = document.getElementById('customerSection');
+            const ownerSec = document.getElementById('ownerSection');
+
+            if (tab === 'customer') {
+                custBtn.className = 'py-3 px-6 font-bold text-sm border-b-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 flex items-center gap-2 transition';
+                ownerBtn.className = 'py-3 px-6 font-bold text-sm text-slate-500 hover:text-indigo-600 border-b-2 border-transparent flex items-center gap-2 transition';
+                custSec.classList.remove('hidden');
+                ownerSec.classList.add('hidden');
+            } else {
+                ownerBtn.className = 'py-3 px-6 font-bold text-sm border-b-2 border-indigo-600 text-indigo-600 dark:text-indigo-400 flex items-center gap-2 transition';
+                custBtn.className = 'py-3 px-6 font-bold text-sm text-slate-500 hover:text-indigo-600 border-b-2 border-transparent flex items-center gap-2 transition';
+                ownerSec.classList.remove('hidden');
+                custSec.classList.add('hidden');
+                renderOwnerPortal();
+            }
+        }
+
+        // Customer Login & Registration Flow
+        let pendingMobile = '';
+        function handleCustomerLogin() {
+            const mobileInput = document.getElementById('loginMobile').value.trim();
+            if (mobileInput.length !== 10) {
+                alert('Please enter a valid 10-digit mobile number.');
+                return;
+            }
+
+            pendingMobile = mobileInput;
+            const existing = appState.customers.find(c => c.mobile === pendingMobile);
+
+            if (existing) {
+                appState.currentUserMobile = pendingMobile;
+                renderCustomerDashboard();
+            } else {
+                // Show Registration Modal with QR
+                document.getElementById('authCard').classList.add('hidden');
+                document.getElementById('registerModal').classList.remove('hidden');
+                document.getElementById('displayRegFee').innerText = appState.regFee;
+                
+                // Generate QR Code
+                const qrContainer = document.getElementById('qrcodeContainer');
+                qrContainer.innerHTML = '';
+                const qr = qrcode(0, 'M');
+                qr.addData(`upi://pay?pa=Q708238096@ybl&pn=ShauryaEnterprises&am=${appState.regFee}&cu=INR`);
+                qr.make();
+                qrContainer.innerHTML = qr.createSvgTag({cellSize: 4, margin: 2});
+            }
+        }
+
+        function submitRegistration(isPaid) {
+            const name = document.getElementById('regName').value.trim();
+            const idNum = document.getElementById('regIdNum').value.trim();
+            if (!name || !idNum) {
+                alert('Please fill in your name and ID number.');
+                return;
+            }
+
+            const newCust = {
+                mobile: pendingMobile,
+                name: name,
+                idNum: idNum,
+                points: 20, // 20 welcome bonus coins
+                feePaid: isPaid,
+                history: [{ date: new Date().toISOString().split('T')[0], note: 'Registration Welcome Bonus', points: 20 }]
+            };
+
+            appState.customers.push(newCust);
+            saveToStorage();
+
+            appState.currentUserMobile = pendingMobile;
+            document.getElementById('registerModal').classList.add('hidden');
+            renderCustomerDashboard();
+            alert('Registration successful! Welcome bonus of 20 coins added.');
+        }
+
+        function renderCustomerDashboard() {
+            document.getElementById('authCard').classList.add('hidden');
+            document.getElementById('registerModal').classList.add('hidden');
+            document.getElementById('customerDashboard').classList.remove('hidden');
+
+            const cust = appState.customers.find(c => c.mobile === appState.currentUserMobile);
+            if (!cust) return;
+
+            document.getElementById('custProfileName').innerText = cust.name;
+            document.getElementById('custProfileMobile').innerText = '+91 ' + cust.mobile;
+            document.getElementById('custProfileId').innerText = cust.idNum;
+            document.getElementById('custWalletPoints').innerText = cust.points;
+            document.getElementById('custWalletRupees').innerText = (cust.points / 4).toFixed(2);
+
+            const badge = document.getElementById('custFeeStatusBadge');
+            if (cust.feePaid) {
+                badge.className = 'px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 mt-1 inline-block';
+                badge.innerText = 'Paid (Verified)';
+            } else {
+                badge.className = 'px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 mt-1 inline-block';
+                badge.innerText = 'Payment Pending';
+            }
+
+            // Render Transaction History (Latest 5)
+            const tbody = document.getElementById('customerTxTableBody');
+            tbody.innerHTML = '';
+            const recentTx = [...cust.history].reverse().slice(0, 5);
+            recentTx.forEach(tx => {
+                tbody.innerHTML += `
+                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-900/50">
+                        <td class="p-3 text-xs">${tx.date}</td>
+                        <td class="p-3 font-medium">${tx.note}</td>
+                        <td class="p-3 font-bold text-indigo-600">+${tx.points} Coins</td>
+                        <td class="p-3"><span class="bg-emerald-100 text-emerald-800 text-[10px] px-2 py-0.5 rounded-full font-bold">Success</span></td>
+                    </tr>
+                `;
+            });
+        }
+
+        function logoutCustomer() {
+            appState.currentUserMobile = null;
+            document.getElementById('customerDashboard').classList.add('hidden');
+            document.getElementById('authCard').classList.remove('hidden');
+            document.getElementById('loginMobile').value = '';
+        }
+
+        function downloadCustomerHistory() {
+            const cust = appState.customers.find(c => c.mobile === appState.currentUserMobile);
+            if (!cust) return;
+            let csv = 'Date,Description,Coins\n';
+            cust.history.forEach(t => { csv += `${t.date},"${t.note}",${t.points}\n`; });
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('href', url);
+            a.setAttribute('download', `shaurya_statement_${cust.mobile}.csv`);
+            a.click();
+        }
+
+        // Owner Portal Rendering & Controls
+        function updateRegistrationFeeSetting() {
+            appState.regFee = parseInt(document.getElementById('ownerFeeSetting').value);
+            alert(`Registration fee updated to ₹${appState.regFee}`);
+        }
+
+        function renderOwnerPortal() {
+            document.getElementById('totalCustomerCount').innerText = `${appState.customers.length} Registered`;
+            
+            // Render Customer Directory List
+            const dirList = document.getElementById('ownerCustomerList');
+            dirList.innerHTML = '';
+            appState.customers.forEach(c => {
+                dirList.innerHTML += `
+                    <div onclick="openPointModal('${c.mobile}')" class="bg-slate-50 dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-700 flex justify-between items-center cursor-pointer hover:border-indigo-500 transition">
+                        <div>
+                            <h5 class="font-bold text-sm">${c.name}</h5>
+                            <p class="text-xs text-slate-400">+91 ${c.mobile} | ID: ${c.idNum}</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 px-2.5 py-1 rounded-lg text-xs font-bold">${c.points} Coins</span>
+                            <p class="text-[10px] text-emerald-600 mt-1">Click to Adjust</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Render Broadcast List
+            const bList = document.getElementById('broadcastCustomerList');
+            bList.innerHTML = '';
+            appState.customers.forEach(c => {
+                bList.innerHTML += `
+                    <div class="flex justify-between items-center p-2 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 text-xs">
+                        <div>
+                            <span class="font-bold">${c.name}</span> (+91 ${c.mobile})
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="sendWhatsApp('${c.mobile}')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-2.5 py-1 rounded font-bold flex items-center gap-1">
+                                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                            </button>
+                            <button onclick="sendSMS('${c.mobile}')" class="bg-indigo-600 hover:bg-indigo-500 text-white px-2.5 py-1 rounded font-bold flex items-center gap-1">
+                                <i class="fa-solid fa-message"></i> SMS
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            loadBroadcastTemplate();
+        }
+
+        // Point Adjustment Modal (Owner)
+        let selectedCustMobileForModal = null;
+        function openPointModal(mobile) {
+            selectedCustMobileForModal = mobile;
+            const cust = appState.customers.find(c => c.mobile === mobile);
+            if (!cust) return;
+
+            document.getElementById('modalCustName').innerText = cust.name;
+            document.getElementById('modalCurrentPoints').innerText = cust.points;
+            document.getElementById('modalAuditNote').value = '';
+            document.getElementById('pointModal').classList.remove('hidden');
+        }
+
+        function closePointModal() {
+            document.getElementById('pointModal').classList.add('hidden');
+        }
+
+        function savePointAdjustment() {
+            const cust = appState.customers.find(c => c.mobile === selectedCustMobileForModal);
+            if (!cust) return;
+
+            const action = document.getElementById('modalActionType').value;
+            const val = parseInt(document.getElementById('modalPointsVal').value) || 0;
+            const note = document.getElementById('modalAuditNote').value.trim() || 'Admin Point Adjustment';
+
+            if (action === 'add') {
+                cust.points += val;
+                cust.history.push({ date: new Date().toISOString().split('T')[0], note: note, points: val });
+            } else {
+                cust.points = Math.max(0, cust.points - val);
+                cust.history.push({ date: new Date().toISOString().split('T')[0], note: `Deduction: ${note}`, points: -val });
+            }
+
+            saveToStorage();
+            closePointModal();
+            renderOwnerPortal();
+            alert('Points successfully updated!');
+        }
+
+        // Broadcast Templates & Dispatch
+        const templates = {
+            loan: "Hello! Shaurya Enterprises offers instant low-interest loans with quick approval. Contact us today or visit our portal!",
+            pharmacy: "Special discount on Online Pharmacy orders at Shaurya Enterprises! Order your medicines now and earn reward coins (4 Coins = ₹1).",
+            recharge: "Money transfer, cash withdrawal & recharge services are active now at Shaurya Enterprises, Noida near Sunday Market.",
+            custom: "Dear Customer, important update regarding your account services at Shaurya Enterprises."
+        };
+
+        function loadBroadcastTemplate() {
+            const key = document.getElementById('broadcastTemplateSelect').value;
+            document.getElementById('broadcastMessageBox').value = templates[key] || '';
+        }
+
+        function sendWhatsApp(mobile) {
+            const msg = encodeURIComponent(document.getElementById('broadcastMessageBox').value);
+            window.open(`https://wa.me/91${mobile}?text=${msg}`, '_blank');
+        }
+
+        function sendSMS(mobile) {
+            const msg = encodeURIComponent(document.getElementById('broadcastMessageBox').value);
+            window.open(`sms:+91${mobile}?body=${msg}`, '_blank');
+        }
+
+        // Feedback System
+        function openFeedbackModal() { document.getElementById('feedbackModal').classList.remove('hidden'); }
+        function closeFeedbackModal() { document.getElementById('feedbackModal').classList.add('hidden'); }
+
+        function submitFeedback() {
+            const name = document.getElementById('fbName').value.trim();
+            const mobile = document.getElementById('fbMobile').value.trim();
+            const rating = parseInt(document.getElementById('fbRating').value);
+            const note = document.getElementById('fbNote').value.trim();
+
+            if (!name || !note) {
+                alert('Please enter your name and review note.');
+                return;
+            }
+
+            appState.feedbacks.unshift({ name, mobile, rating, note, date: new Date().toISOString().split('T')[0] });
+            saveToStorage();
+            closeFeedbackModal();
+            renderFeedbacks();
+            alert('Thank you for your valuable feedback!');
+        }
+
+        function renderFeedbacks() {
+            document.getElementById('totalFeedbackCount').innerText = appState.feedbacks.length;
+            const grid = document.getElementById('latestFeedbacksGrid');
+            grid.innerHTML = '';
+
+            const top3 = appState.feedbacks.slice(0, 3);
+            top3.forEach(fb => {
+                const stars = '⭐'.repeat(fb.rating);
+                grid.innerHTML += `
+                    <div class="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h5 class="font-bold text-sm">${fb.name}</h5>
+                                <span class="text-xs text-amber-500">${stars}</span>
+                            </div>
+                            <p class="text-xs text-slate-600 dark:text-slate-300">"${fb.note}"</p>
+                        </div>
+                        <p class="text-[10px] text-slate-400 mt-3">${fb.date}</p>
+                    </div>
+                `;
+            });
+        }
+
+        function openAllFeedbackModal() {
+            let allText = "All Customer Reviews:\n\n";
+            appState.feedbacks.forEach((f, idx) => {
+                allText += `${idx+1}. ${f.name} (${f.rating}/5 stars): "${f.note}" - ${f.date}\n\n`;
+            });
+            alert(allText);
+        }
+
+        // Initial Render on Load
+        window.onload = function() {
+            renderFeedbacks();
+        };
+    </script>
+</body>
+</html>
