@@ -3,577 +3,1564 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHAURYA ENTERPRISES - Official Portal</title>
-    <!-- Tailwind CSS CDN -->
+    <title>SHAURYA ENTERPRISES - Powered by SV Fintech</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- QR Code Generator Library -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- QR Code Generator -->
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-marquee {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 24s linear infinite;
+        }
+        .glow-card {
+            box-shadow: 0 10px 30px -5px rgba(79, 70, 229, 0.25);
+        }
+        .gradient-border {
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #4f46e5, #ec4899, #f59e0b) border-box;
+            border: 2px solid transparent;
+        }
+        .dark .gradient-border {
+            background: linear-gradient(#1e293b, #1e293b) padding-box,
+                        linear-gradient(135deg, #6366f1, #ec4899, #f59e0b) border-box;
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-300 font-sans">
+<body class="bg-slate-100 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-300">
 
-    <!-- Top Header Bar -->
-    <header class="bg-indigo-700 text-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center gap-3">
-            <!-- Brand Logo & Name -->
-            <div class="flex items-center gap-3">
-                <div class="bg-white text-indigo-700 p-3 rounded-2xl shadow-inner font-bold text-2xl flex items-center justify-center w-12 h-12">
-                    <i class="fa-solid fa-shield-halved"></i>
+    <!-- Top Live Notification Ticker -->
+    <div class="bg-gradient-to-r from-amber-500 via-orange-600 to-rose-600 text-white py-2 overflow-hidden shadow-md">
+        <div class="animate-marquee font-bold text-xs md:text-sm tracking-wide">
+            🎉 SHAURYA ENTERPRISES (Powered by SV Fintech) में आपका स्वागत है! | 🪙 4 कॉइन = ₹1 (मंथली या किसी भी काम में तुरंत रिडीम करें) | 💳 QR पेमेंट के साथ रजिस्ट्रेशन पर पाएं 40 कॉइन बोनस! | 👥 रेफर करने पर पाएं पूरे 20 कॉइन! | 💊 ऑनलाइन दवा और तुरंत लोन सेवा उपलब्ध!
+        </div>
+    </div>
+
+    <!-- Wide & Vibrant Header Bar -->
+    <header class="bg-gradient-to-r from-indigo-950 via-indigo-900 to-purple-900 text-white shadow-2xl sticky top-0 z-50 border-b-4 border-amber-400">
+        <div class="max-w-7xl mx-auto px-4 py-4 md:py-5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <!-- Brand Logo & Wide Title -->
+            <div class="flex items-center gap-4 text-center md:text-left">
+                <div class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-amber-400 via-orange-500 to-rose-500 p-1 shadow-xl flex-shrink-0">
+                    <div class="w-full h-full bg-indigo-950 rounded-xl flex flex-col items-center justify-center">
+                        <i class="fa-solid fa-crown text-amber-400 text-2xl md:text-3xl"></i>
+                        <span class="text-[9px] font-black tracking-widest text-white mt-0.5">SE HUB</span>
+                    </div>
                 </div>
                 <div>
-                    <h1 class="text-2xl md:text-3xl font-black tracking-wider uppercase">SHAURYA ENTERPRISES</h1>
-                    <p class="text-xs text-indigo-200 flex items-center gap-2 mt-0.5">
-                        <span><i class="fa-solid fa-location-dot mr-1"></i> Noida, Near Sunday Market (Pin: 201301)</span>
-                        <span class="bg-indigo-800 px-2 py-0.5 rounded text-[10px] font-semibold text-amber-300">Powered by SV Fintech</span>
-                    </p>
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-wider uppercase bg-gradient-to-r from-white via-amber-200 to-amber-400 bg-clip-text text-transparent drop-shadow">
+                        SHAURYA ENTERPRISES
+                    </h1>
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 mt-1">
+                        <span class="bg-amber-400 text-indigo-950 text-[11px] md:text-xs font-extrabold px-2.5 py-0.5 rounded-md shadow uppercase tracking-wider">
+                            <i class="fa-solid fa-bolt mr-1"></i>Powered by SV Fintech
+                        </span>
+                        <span class="text-xs text-indigo-200 font-medium flex items-center gap-1">
+                            <i class="fa-solid fa-location-dot text-rose-400"></i> Noida, Near Sunday Market, Sector-62 Area (Pin: 201301)
+                        </span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Action Controls: Theme, Language, Quick Contacts -->
-            <div class="flex items-center gap-2">
-                <button onclick="toggleLanguage()" id="langBtn" class="bg-white/10 hover:bg-white/20 px-3 py-2 rounded-xl text-xs font-semibold transition">
-                    🌐 हिन्दी / English
+            <!-- Header Controls (Cloud Sync, Language, Theme, WhatsApp) -->
+            <div class="flex items-center flex-wrap justify-center gap-2.5">
+                <div class="bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    Cloud Live
+                </div>
+                <button onclick="toggleLanguage()" id="langBtn" class="bg-white/10 hover:bg-white/20 border border-white/20 px-3.5 py-2 rounded-xl text-xs font-bold transition cursor-pointer">
+                    🌐 हिन्दी / ENG
                 </button>
-                <button onclick="toggleTheme()" class="bg-white/10 hover:bg-white/20 p-2.5 rounded-xl text-sm transition">
-                    <i id="themeIcon" class="fa-solid fa-moon"></i>
+                <button onclick="toggleTheme()" class="bg-white/10 hover:bg-white/20 border border-white/20 p-2.5 rounded-xl text-sm transition cursor-pointer" title="Dark/Light Mode">
+                    <i id="themeIcon" class="fa-solid fa-moon text-amber-300"></i>
                 </button>
-                <a href="https://wa.me/919250525720" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow">
-                    <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+                <a href="https://wa.me/919250525720" target="_blank" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-4 py-2 rounded-xl text-xs font-black flex items-center gap-1.5 shadow-lg transition">
+                    <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp Help
                 </a>
+            </div>
+        </div>
+
+        <!-- Portal Navigation Bar inside Wide Header -->
+        <div class="bg-black/30 backdrop-blur border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-4 flex justify-center md:justify-between items-center flex-wrap gap-2 py-2.5">
+                <div class="flex gap-2">
+                    <button onclick="switchMainPortal('customer')" id="navCustomerBtn" class="bg-amber-400 text-indigo-950 font-black px-5 py-2 rounded-xl text-xs md:text-sm shadow-md flex items-center gap-2 transition cursor-pointer">
+                        <i class="fa-solid fa-user-check"></i> <span data-i18n="custPortalBtn">कस्टमर पोर्टल (Customer Portal)</span>
+                    </button>
+                    <button onclick="switchMainPortal('owner')" id="navOwnerBtn" class="bg-white/10 hover:bg-white/20 text-white font-bold px-5 py-2 rounded-xl text-xs md:text-sm flex items-center gap-2 transition cursor-pointer">
+                        <i class="fa-solid fa-user-shield text-amber-300"></i> <span data-i18n="ownerPortalBtn">ओनर पोर्टल (Owner Portal)</span>
+                    </button>
+                </div>
+                <div class="hidden lg:flex items-center gap-4 text-xs text-indigo-200 font-semibold">
+                    <span><i class="fa-solid fa-coins text-amber-400 mr-1"></i> 4 Coins = ₹1 Cashback</span>
+                    <span><i class="fa-solid fa-gift text-pink-400 mr-1"></i> Paid Reg: 40 Coins | Unpaid: 10 Coins | Referral: 20 Coins</span>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Main Container -->
-    <main class="max-w-7xl mx-auto px-4 py-6 flex-grow w-full">
-        
-        <!-- Rich Welcome Banner -->
-        <div class="bg-gradient-to-r from-indigo-700 via-blue-700 to-indigo-800 text-white rounded-3xl p-8 shadow-2xl mb-8 relative overflow-hidden border border-indigo-500/30">
-            <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl">
-                <i class="fa-solid fa-building-shield"></i>
-            </div>
-            <div class="relative z-10">
-                <span class="bg-amber-400 text-slate-900 text-xs px-3.5 py-1 rounded-full font-black uppercase tracking-wider inline-block mb-3 shadow">
-                    <i class="fa-solid fa-bolt mr-1"></i> All-In-One Digital Service Hub
-                </span>
-                <h2 class="text-3xl md:text-4xl font-black mb-3">Welcome to Shaurya Enterprises</h2>
-                <p class="text-indigo-100 text-sm md:text-base max-w-3xl mb-6 leading-relaxed">
-                    Trusted multi-service center for instant Loan Services, Online Pharmacy, and Cash/Recharge solutions. Register now to earn reward points (<span class="font-bold text-amber-300">4 Coins = ₹1</span>).
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="https://rhlsig.github.io/RNS-FINANCE/" target="_blank" class="bg-white text-indigo-700 hover:bg-indigo-50 font-extrabold px-5 py-3 rounded-2xl text-sm shadow-xl flex items-center gap-2 transition transform hover:-translate-y-0.5">
-                        <i class="fa-solid fa-hand-holding-dollar text-indigo-600"></i> RNS Finance Portal <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                    </a>
-                    <a href="https://rhlsig.github.io/RNS-PHARMACY/" target="_blank" class="bg-emerald-500 hover:bg-emerald-400 text-white font-extrabold px-5 py-3 rounded-2xl text-sm shadow-xl flex items-center gap-2 transition transform hover:-translate-y-0.5">
-                        <i class="fa-solid fa-pills"></i> RNS Pharmacy Store <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 py-6 flex-grow w-full space-y-8">
 
-        <!-- Navigation Tabs: Customer vs Owner Portal -->
-        <div class="flex border-b border-slate-200 dark:border-slate-700 mb-6">
-            <button onclick="switchTab('customer')" id="tabCustomerBtn" class="py-3 px-6 font-extrabold text-sm border-b-4 border-indigo-600 text-indigo-600 dark:text-indigo-400 flex items-center gap-2 transition">
-                <i class="fa-solid fa-user-shield"></i> Customer Portal
-            </button>
-            <button onclick="promptOwnerLogin()" id="tabOwnerBtn" class="py-3 px-6 font-extrabold text-sm text-slate-500 hover:text-indigo-600 border-b-4 border-transparent flex items-center gap-2 transition">
-                <i class="fa-solid fa-lock"></i> Owner Portal (Admin)
-            </button>
-        </div>
+        <!-- GRAND VIBRANT HERO BANNER -->
+        <section class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900 text-white shadow-2xl border-2 border-indigo-500/40 p-6 md:p-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative z-10">
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-400/50 text-amber-300 px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider">
+                        <i class="fa-solid fa-star"></i> India's Trusted Multi-Service & Loyalty Hub
+                    </div>
+                    <h2 class="text-2xl sm:text-4xl font-black leading-tight" data-i18n="heroTitle">
+                        लोन सर्विसेज, ऑनलाइन फार्मेसी और डिजिटल बैंकिंग — अब हर काम पर कमाएं रिवॉर्ड कॉइन्स!
+                    </h2>
+                    <p class="text-indigo-200 text-xs sm:text-sm leading-relaxed" data-i18n="heroSubtitle">
+                        <strong>SHAURYA ENTERPRISES (Powered by SV Fintech)</strong> में रजिस्टर करें और अपने हर रिचार्ज, बिल पेमेंट, मनी ट्रांसफर, लोन व दवा ऑर्डर पर कॉइन पाएं। <strong>4 कॉइन मिलाकर ₹1 बनेगा</strong>, जिसे आप मंथली या कभी भी विड्रॉ कर सकते हैं या किसी भी सर्विस में एडजस्ट करवा सकते हैं!
+                    </p>
 
-        <!-- ==================== CUSTOMER PORTAL SECTION ==================== -->
-        <div id="customerSection" class="space-y-6">
-            <!-- Auth Card (Login / Register) -->
-            <div id="authCard" class="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border border-slate-200 dark:border-slate-700 max-w-xl mx-auto">
-                <div class="text-center mb-6">
-                    <h3 class="text-2xl font-black">Customer Login & Registration</h3>
-                    <p class="text-xs text-slate-500 mt-1">Enter your 10-digit mobile number to access your wallet & points</p>
-                </div>
-
-                <div class="space-y-5">
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider mb-2 text-slate-500">Mobile Number</label>
-                        <div class="flex">
-                            <span class="bg-slate-100 dark:bg-slate-700 border border-r-0 border-slate-300 dark:border-slate-600 px-4 py-3 rounded-l-2xl text-sm font-bold text-slate-600 dark:text-slate-300">+91</span>
-                            <input type="tel" id="loginMobile" maxlength="10" placeholder="9876543210" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-4 py-3 rounded-r-2xl text-sm font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <!-- Bonus Highlights Pills -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                        <div class="bg-emerald-500/20 border border-emerald-400/40 rounded-2xl p-3 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500 text-slate-950 font-black flex items-center justify-center text-lg">40</div>
+                            <div>
+                                <p class="text-xs font-black text-emerald-300">Paid Registration</p>
+                                <p class="text-[11px] text-indigo-100">QR पेमेंट पर 40 कॉइन</p>
+                            </div>
+                        </div>
+                        <div class="bg-amber-500/20 border border-amber-400/40 rounded-2xl p-3 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-amber-400 text-slate-950 font-black flex items-center justify-center text-lg">10</div>
+                            <div>
+                                <p class="text-xs font-black text-amber-300">Free Registration</p>
+                                <p class="text-[11px] text-indigo-100">बिना पेमेंट 10 कॉइन</p>
+                            </div>
+                        </div>
+                        <div class="bg-pink-500/20 border border-pink-400/40 rounded-2xl p-3 flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-pink-500 text-white font-black flex items-center justify-center text-lg">20</div>
+                            <div>
+                                <p class="text-xs font-black text-pink-300">Referral Bonus</p>
+                                <p class="text-[11px] text-indigo-100">रेफरल को पूरे 20 कॉइन</p>
+                            </div>
                         </div>
                     </div>
-                    <button onclick="handleCustomerLogin()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-black py-3.5 rounded-2xl shadow-lg transition text-sm flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-right-to-bracket"></i> Login / Register Now
+                </div>
+
+                <!-- Right Side Coin Conversion & Quick Links Showcase -->
+                <div class="lg:col-span-5 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-5 space-y-4">
+                    <div class="flex justify-between items-center border-b border-white/15 pb-3">
+                        <div>
+                            <span class="text-[11px] uppercase tracking-wider text-amber-300 font-bold">Official Coin Value</span>
+                            <h3 class="text-2xl font-black text-white">4 Coins = ₹1.00</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-amber-400 text-indigo-950 flex items-center justify-center text-2xl font-black shadow-lg">
+                            <i class="fa-solid fa-coins"></i>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-4 gap-2 text-center text-xs">
+                        <div class="bg-black/30 p-2 rounded-xl border border-white/10">
+                            <p class="font-black text-amber-300">10 Coins</p>
+                            <p class="text-[11px] text-indigo-200">= ₹2.50</p>
+                        </div>
+                        <div class="bg-black/30 p-2 rounded-xl border border-white/10">
+                            <p class="font-black text-amber-300">20 Coins</p>
+                            <p class="text-[11px] text-indigo-200">= ₹5.00</p>
+                        </div>
+                        <div class="bg-black/30 p-2 rounded-xl border border-white/10">
+                            <p class="font-black text-amber-300">40 Coins</p>
+                            <p class="text-[11px] text-indigo-200">= ₹10.00</p>
+                        </div>
+                        <div class="bg-black/30 p-2 rounded-xl border border-white/10">
+                            <p class="font-black text-amber-300">100 Coins</p>
+                            <p class="text-[11px] text-indigo-200">= ₹25.00</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 pt-1">
+                        <a href="https://rhlsig.github.io/RNS-FINANCE/" target="_blank" class="w-full bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-300 hover:to-orange-400 text-slate-950 font-black py-3 px-4 rounded-xl text-xs sm:text-sm flex items-center justify-between shadow-lg transition">
+                            <span><i class="fa-solid fa-hand-holding-dollar mr-2"></i> लोन लेने के लिए यहाँ क्लिक करें (RNS Finance)</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <a href="https://rhlsig.github.io/RNS-PHARMACY/" target="_blank" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-black py-3 px-4 rounded-xl text-xs sm:text-sm flex items-center justify-between shadow-lg transition">
+                            <span><i class="fa-solid fa-prescription-bottle-medical mr-2"></i> दवा ऑर्डर करने के लिए यहाँ क्लिक करें (Pharmacy)</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CUSTOMER PORTAL SECTION ==================== -->
+        <div id="customerPortalSection" class="space-y-8">
+
+            <!-- Login & Registration Split Area -->
+            <div id="customerAuthArea" class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+                <!-- Left: Instant Mobile Login Card -->
+                <div class="lg:col-span-5 bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-xl gradient-border space-y-5">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center text-xl shadow-md">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <div>
+                            <span class="text-[11px] font-extrabold uppercase text-indigo-600 dark:text-indigo-400">Existing Customer</span>
+                            <h3 class="text-xl font-black" data-i18n="loginCardTitle">कस्टमर लॉगिन (Mobile Login)</h3>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">
+                        केवल अपना मोबाइल नंबर डालें (आगे 0 या +91 लगा हो तब भी ऑटोमैटिक ट्रैक होकर तुरंत लॉगिन हो जाएगा)।
+                    </p>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase mb-1.5 text-slate-600 dark:text-slate-300">Mobile Number (मोबाइल नंबर)</label>
+                            <input type="tel" id="custLoginMobileInput" placeholder="e.g. 9876543210 or +919876543210" class="w-full bg-slate-50 dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-700 px-4 py-3 rounded-xl text-sm font-bold focus:outline-none focus:border-indigo-600">
+                        </div>
+                        <button onclick="loginCustomerByMobile()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-black py-3.5 rounded-xl shadow-lg transition text-sm flex items-center justify-center gap-2 cursor-pointer">
+                            <i class="fa-solid fa-right-to-bracket"></i> तुरंत लॉगिन करें (Instant Login)
+                        </button>
+                    </div>
+
+                    <!-- Mini EMI Calculator to keep page rich and full -->
+                    <div class="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-3">
+                        <h4 class="text-xs font-black uppercase text-slate-500 flex items-center gap-1.5">
+                            <i class="fa-solid fa-calculator text-amber-500"></i> Quick Loan EMI Calculator
+                        </h4>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="text-[11px] font-semibold text-slate-500">Loan Amount (₹)</label>
+                                <input type="number" id="emiAmount" value="50000" oninput="calcEMI()" class="w-full bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg text-xs font-bold">
+                            </div>
+                            <div>
+                                <label class="text-[11px] font-semibold text-slate-500">Months (महीने)</label>
+                                <input type="number" id="emiMonths" value="12" oninput="calcEMI()" class="w-full bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg text-xs font-bold">
+                            </div>
+                        </div>
+                        <div class="bg-indigo-50 dark:bg-indigo-950/50 p-3 rounded-xl flex justify-between items-center text-xs">
+                            <span class="font-semibold text-slate-600 dark:text-slate-300">Estimated Monthly EMI:</span>
+                            <span class="font-black text-indigo-600 dark:text-indigo-400 text-sm" id="emiResult">₹4,583 / माह</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: New Customer Registration Card -->
+                <div class="lg:col-span-7 bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-xl gradient-border space-y-5">
+                    <div class="flex flex-wrap justify-between items-center gap-2">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center text-xl shadow-md">
+                                <i class="fa-solid fa-user-plus"></i>
+                            </div>
+                            <div>
+                                <span class="text-[11px] font-extrabold uppercase text-orange-600 dark:text-amber-400">New Member</span>
+                                <h3 class="text-xl font-black" data-i18n="regCardTitle">नया कस्टमर रजिस्ट्रेशन (New Registration)</h3>
+                            </div>
+                        </div>
+                        <span class="bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 text-xs font-extrabold px-3 py-1 rounded-full">
+                            Paid = 40 Coins | Unpaid = 10 Coins
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase mb-1 text-slate-600 dark:text-slate-300">पूरा नाम (Full Name) *</label>
+                            <input type="text" id="regFullName" placeholder="अपना नाम लिखें" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 px-4 py-2.5 rounded-xl text-sm font-semibold">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase mb-1 text-slate-600 dark:text-slate-300">मोबाइल नंबर (Mobile Number) *</label>
+                            <input type="tel" id="regMobileNum" placeholder="10-digit Mobile Number" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 px-4 py-2.5 rounded-xl text-sm font-semibold">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase mb-1 text-slate-600 dark:text-slate-300">आईडी नंबर (Aadhaar / PAN / ID) *</label>
+                            <input type="text" id="regIdNumber" placeholder="Enter ID Number" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 px-4 py-2.5 rounded-xl text-sm font-semibold">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase mb-1 text-pink-600 dark:text-pink-400">रेफरल मोबाइल नंबर (Optional - 20 Coins)</label>
+                            <input type="tel" id="regReferralMobile" placeholder="जिसने रेफर किया उसका नंबर" class="w-full bg-pink-50/50 dark:bg-slate-800 border border-pink-300 dark:border-pink-800 px-4 py-2.5 rounded-xl text-sm font-semibold">
+                        </div>
+                    </div>
+
+                    <button onclick="openRegistrationQRModal()" class="w-full bg-gradient-to-r from-amber-500 via-orange-600 to-rose-600 hover:opacity-95 text-white font-black py-3.5 rounded-xl shadow-lg transition text-sm flex items-center justify-center gap-2 cursor-pointer">
+                        <i class="fa-solid fa-qrcode text-lg"></i> रजिस्ट्रेशन प्रोसेस करें और कॉइन पाएं (Proceed to Register)
                     </button>
                 </div>
             </div>
 
-            <!-- Registration Modal (For New Users) -->
-            <div id="registerModal" class="hidden bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-2xl border border-indigo-200 dark:border-indigo-900 max-w-xl mx-auto">
-                <div class="text-center mb-6">
-                    <span class="bg-amber-100 text-amber-800 text-xs px-3 py-1 rounded-full font-bold">New Registration</span>
-                    <h3 class="text-2xl font-black mt-2">Complete Your Profile</h3>
-                    <p class="text-xs text-slate-500">Register now and earn instant bonus coins!</p>
-                </div>
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-xs font-bold uppercase mb-1 text-slate-500">Full Name</label>
-                        <input type="text" id="regName" placeholder="Enter Full Name" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-4 py-3 rounded-2xl text-sm font-semibold">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase mb-1 text-slate-500">ID Number (Aadhaar / Voter ID)</label>
-                        <input type="text" id="regIdNum" placeholder="Enter ID Number" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-4 py-3 rounded-2xl text-sm font-semibold">
-                    </div>
-                    
-                    <!-- QR Code Box -->
-                    <div class="bg-slate-50 dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 text-center">
-                        <p class="text-xs font-bold text-slate-600 dark:text-slate-400 mb-2">Scan QR & Pay Registration Fee (₹<span id="displayRegFee">10</span>)</p>
-                        <div id="qrcodeContainer" class="flex justify-center mb-3 bg-white p-3 rounded-xl inline-block shadow"></div>
-                        <p class="text-[11px] text-slate-400 font-mono">UPI ID: <span id="displayUpiId" class="font-bold text-indigo-600">Q708238096@ybl</span></p>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-3 pt-2">
-                        <button onclick="submitRegistration(true)" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-2xl text-xs shadow-md">
-                            <i class="fa-solid fa-qrcode mr-1"></i> Paid via QR (Get 40 Coins)
-                        </button>
-                        <button onclick="submitRegistration(false)" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 rounded-2xl text-xs shadow-md">
-                            <i class="fa-solid fa-clock mr-1"></i> Skip / Not Paid (Get 10 Coins)
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Customer Dashboard -->
-            <div id="customerDashboard" class="hidden space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-700 md:col-span-2 flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <span class="text-xs text-emerald-600 dark:text-emerald-400 font-bold uppercase tracking-wider">Active Customer</span>
-                                    <h3 class="text-2xl font-black mt-1" id="custProfileName">Rahul Singh</h3>
-                                    <p class="text-xs text-slate-400 mt-1">Mobile: <span id="custProfileMobile">+91 9876543210</span> | ID: <span id="custProfileId">1234-5678-9012</span></p>
+            <!-- LOGGED-IN CUSTOMER DASHBOARD (Hidden until customer logs in) -->
+            <div id="customerLoggedInDashboard" class="hidden space-y-6">
+                
+                <!-- Top Profile & Coin Wallet Banner -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                    <!-- Profile Details Card -->
+                    <div class="lg:col-span-7 bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between space-y-4">
+                        <div class="flex flex-wrap justify-between items-start gap-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-16 h-16 rounded-2xl bg-indigo-600 text-white font-black text-2xl flex items-center justify-center shadow-lg" id="dashAvatar">
+                                    R
                                 </div>
-                                <button onclick="logoutCustomer()" class="text-rose-500 hover:text-rose-700 text-xs font-bold bg-rose-50 dark:bg-rose-950/40 px-3 py-2 rounded-xl">
-                                    <i class="fa-solid fa-right-from-bracket mr-1"></i> Logout
-                                </button>
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="bg-emerald-100 text-emerald-800 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full">Verified Member</span>
+                                        <span id="dashPaymentStatusBadge" class="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full"></span>
+                                    </div>
+                                    <h3 class="text-2xl font-black mt-1" id="dashCustName">-</h3>
+                                    <p class="text-xs text-slate-500 font-semibold">
+                                        Mobile: <span id="dashCustMobile" class="text-slate-800 dark:text-slate-200 font-bold">-</span> | 
+                                        ID Number: <span id="dashCustId" class="text-slate-800 dark:text-slate-200 font-bold">-</span>
+                                    </p>
+                                </div>
                             </div>
+                            <button onclick="logoutCustomer()" class="bg-rose-100 hover:bg-rose-200 text-rose-700 font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 cursor-pointer">
+                                <i class="fa-solid fa-power-off"></i> लॉगआउट (Logout)
+                            </button>
                         </div>
-                        <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-700 flex flex-wrap gap-4 justify-between items-center">
+
+                        <!-- Referral Box inside Customer Dashboard -->
+                        <div class="bg-slate-50 dark:bg-slate-800/70 p-4 rounded-2xl border border-dashed border-indigo-400 flex flex-wrap justify-between items-center gap-3">
                             <div>
-                                <p class="text-xs text-slate-400">Registration Status</p>
-                                <span id="custFeeStatusBadge" class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 mt-1 inline-block">Paid (40 Coins)</span>
+                                <p class="text-xs font-extrabold text-indigo-600 dark:text-indigo-400">
+                                    <i class="fa-solid fa-gift mr-1"></i> आपका रेफरल कोड: <span id="dashReferralCode" class="text-sm font-black underline"></span>
+                                </p>
+                                <p class="text-[11px] text-slate-500">अपने दोस्तों को इस नंबर से रजिस्टर करवाएं और हर रेफरल पर तुरंत <strong>20 कॉइन</strong> पाएं!</p>
                             </div>
-                            <div class="flex gap-2">
-                                <a href="https://rhlsig.github.io/RNS-FINANCE/" target="_blank" class="bg-indigo-600 text-white text-xs px-4 py-2 rounded-xl font-bold shadow">Apply Loan</a>
-                                <a href="https://rhlsig.github.io/RNS-PHARMACY/" target="_blank" class="bg-emerald-600 text-white text-xs px-4 py-2 rounded-xl font-bold shadow">Order Medicine</a>
-                            </div>
+                            <button onclick="shareReferralOnWhatsApp()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl flex items-center gap-1.5 shadow cursor-pointer">
+                                <i class="fa-brands fa-whatsapp"></i> Share & Earn 20 Coins
+                            </button>
                         </div>
                     </div>
 
-                    <!-- Wallet & Coins Box -->
-                    <div class="bg-gradient-to-br from-amber-500 to-orange-600 text-white p-6 rounded-3xl shadow-xl flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-xs font-bold uppercase tracking-wider bg-black/20 px-3 py-1 rounded-xl">Loyalty Wallet</span>
-                                <i class="fa-solid fa-coins text-2xl text-amber-200"></i>
+                    <!-- Dynamic Coin Showcase & Wallet Card -->
+                    <div class="lg:col-span-5 bg-gradient-to-br from-amber-500 via-orange-600 to-rose-600 text-white rounded-3xl p-6 shadow-2xl flex flex-col justify-between relative overflow-hidden">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="bg-black/25 text-xs font-black uppercase px-3 py-1 rounded-full">Your Loyalty Wallet</span>
+                                <h4 class="text-4xl sm:text-5xl font-black mt-3"><span id="dashCustCoins">0</span> <span class="text-xl font-bold">Coins</span></h4>
+                                <p class="text-sm font-bold text-amber-100 mt-1">
+                                    भारतीय रुपये में वैल्यू: <span class="text-white text-lg font-black">₹<span id="dashCustRupees">0.00</span></span> (4 Coins = ₹1)
+                                </p>
                             </div>
-                            <h4 class="text-4xl font-black mt-4"><span id="custWalletPoints">40</span> <span class="text-lg font-medium">Coins</span></h4>
-                            <p class="text-xs text-amber-100 mt-1">Equivalent Value: ₹<span id="custWalletRupees">10.00</span></p>
+                            <i class="fa-solid fa-coins text-5xl text-amber-200/60"></i>
                         </div>
-                        <p class="text-[11px] bg-black/10 p-2.5 rounded-2xl mt-4">💡 Rule: 4 Coins = ₹1 discount on services.</p>
+
+                        <!-- Visual Coin Badges (1, 2, 10, 20, 50 Coins Showcase) -->
+                        <div class="my-4">
+                            <p class="text-[11px] font-bold uppercase text-amber-100 mb-1.5">Active Coin Denominations:</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="bg-white/20 backdrop-blur px-2.5 py-1 rounded-lg text-xs font-black">🪙 1 Coin</span>
+                                <span class="bg-white/20 backdrop-blur px-2.5 py-1 rounded-lg text-xs font-black">🪙 2 Coins</span>
+                                <span class="bg-white/20 backdrop-blur px-2.5 py-1 rounded-lg text-xs font-black">🪙 10 Coins</span>
+                                <span class="bg-white/20 backdrop-blur px-2.5 py-1 rounded-lg text-xs font-black">🪙 20 Coins</span>
+                                <span class="bg-white/20 backdrop-blur px-2.5 py-1 rounded-lg text-xs font-black">🪙 40 Coins</span>
+                                <span class="bg-white/20 backdrop-blur px-2.5 py-1 rounded-lg text-xs font-black">🪙 50 Coins</span>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <button onclick="requestCoinRedemption()" class="w-full bg-slate-950 hover:bg-slate-900 text-amber-400 font-black py-2.5 px-4 rounded-xl text-xs shadow-lg flex items-center justify-center gap-2 cursor-pointer">
+                                <i class="fa-solid fa-money-bill-transfer"></i> कॉइन विड्रॉ / एडजस्ट रिक्वेस्ट भेजें (Redeem Coins)
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Transaction History -->
-                <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-700">
-                    <div class="flex flex-wrap justify-between items-center gap-4 mb-4">
-                        <h4 class="font-bold text-lg"><i class="fa-solid fa-clock-rotate-left mr-2 text-indigo-600"></i> Latest Point History</h4>
-                        <button onclick="downloadCustomerHistory()" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-4 py-2 rounded-xl shadow">
-                            <i class="fa-solid fa-download mr-1"></i> Download History CSV
-                        </button>
+                <!-- Highlighted Direct Links after Customer Login (As specifically requested) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <a href="https://rhlsig.github.io/RNS-FINANCE/" target="_blank" class="group bg-gradient-to-r from-indigo-700 via-indigo-600 to-blue-600 hover:from-indigo-600 hover:to-blue-500 text-white p-6 rounded-3xl shadow-xl flex items-center justify-between border-2 border-amber-400 transition transform hover:-translate-y-0.5">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-amber-400 text-indigo-950 flex items-center justify-center text-2xl font-black shadow-md">
+                                <i class="fa-solid fa-Vault fa-hand-holding-dollar"></i>
+                            </div>
+                            <div>
+                                <span class="bg-amber-400 text-indigo-950 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">Instant Loan Portal</span>
+                                <h4 class="text-lg sm:text-xl font-black mt-1">लोन लेने के लिए यहाँ पर क्लिक करें</h4>
+                                <p class="text-xs text-indigo-100">Click to open RNS Finance Portal directly</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-circle-arrow-right text-3xl text-amber-300 group-hover:translate-x-1 transition"></i>
+                    </a>
+
+                    <a href="https://rhlsig.github.io/RNS-PHARMACY/" target="_blank" class="group bg-gradient-to-r from-emerald-700 via-emerald-600 to-teal-600 hover:from-emerald-600 hover:to-teal-500 text-white p-6 rounded-3xl shadow-xl flex items-center justify-between border-2 border-amber-400 transition transform hover:-translate-y-0.5">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-white text-emerald-700 flex items-center justify-center text-2xl font-black shadow-md">
+                                <i class="fa-solid fa-pills"></i>
+                            </div>
+                            <div>
+                                <span class="bg-amber-300 text-emerald-950 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">Online Medicine Store</span>
+                                <h4 class="text-lg sm:text-xl font-black mt-1">दवा ऑर्डर करने के लिए यहाँ पर क्लिक करें</h4>
+                                <p class="text-xs text-emerald-100">Click to open RNS Pharmacy Store directly</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-circle-arrow-right text-3xl text-amber-300 group-hover:translate-x-1 transition"></i>
+                    </a>
+                </div>
+
+                <!-- Latest 5 Transactions & 1M/2M History Download -->
+                <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-xl border border-slate-200 dark:border-slate-800">
+                    <div class="flex flex-wrap justify-between items-center gap-4 mb-5">
+                        <div>
+                            <h4 class="text-lg font-black flex items-center gap-2">
+                                <i class="fa-solid fa-clock-rotate-left text-indigo-600"></i> आपके लेटेस्ट 5 ट्रांजैक्शन (Latest 5 Transactions)
+                            </h4>
+                            <p class="text-xs text-slate-500">पूरी स्टेटमेंट देखने के लिए नीचे 1 Month या 2 Month सेलेक्ट करके डाउनलोड करें।</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <select id="custHistoryPeriod" class="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 px-3 py-2 rounded-xl text-xs font-bold">
+                                <option value="1">1 Month History</option>
+                                <option value="2">2 Months History</option>
+                            </select>
+                            <button onclick="downloadCustomerStatementCSV()" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-black px-4 py-2 rounded-xl shadow flex items-center gap-1.5 cursor-pointer">
+                                <i class="fa-solid fa-file-arrow-down"></i> Download History
+                            </button>
+                        </div>
                     </div>
+
                     <div class="overflow-x-auto">
-                        <table class="w-full text-left text-sm">
-                            <thead class="bg-slate-50 dark:bg-slate-900 text-slate-500 uppercase text-xs">
+                        <table class="w-full text-left text-xs sm:text-sm">
+                            <thead class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 uppercase text-xs font-bold">
                                 <tr>
-                                    <th class="p-3">Date</th>
-                                    <th class="p-3">Description / Note</th>
-                                    <th class="p-3">Coins</th>
-                                    <th class="p-3">Status</th>
+                                    <th class="p-3.5 rounded-l-xl">Date</th>
+                                    <th class="p-3.5">Reason / Note (विवरण)</th>
+                                    <th class="p-3.5">Coins (पॉइंट्स)</th>
+                                    <th class="p-3.5 rounded-r-xl">Value (₹)</th>
                                 </tr>
                             </thead>
-                            <tbody id="customerTxTableBody" class="divide-y divide-slate-100 dark:divide-slate-700"></tbody>
+                            <tbody id="custLatest5Table" class="divide-y divide-slate-200 dark:divide-slate-800">
+                                <!-- Populated via JS -->
+                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ==================== OWNER PORTAL SECTION ==================== -->
-        <div id="ownerSection" class="hidden space-y-6">
-            <div class="bg-slate-800 text-white p-6 rounded-3xl shadow-2xl flex flex-wrap justify-between items-center gap-4 border border-slate-700">
+        <!-- ==================== OWNER PORTAL SECTION (PASSWORD: 1993) ==================== -->
+        <div id="ownerPortalSection" class="hidden space-y-6">
+
+            <!-- Password Lock Screen (1993) -->
+            <div id="ownerLockCard" class="max-w-md mx-auto bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-2xl gradient-border text-center space-y-5">
+                <div class="w-16 h-16 rounded-2xl bg-indigo-600 text-white flex items-center justify-center text-3xl mx-auto shadow-lg">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
                 <div>
-                    <span class="bg-indigo-600 text-xs px-3 py-1 rounded-full font-bold uppercase">Admin Secured Dashboard</span>
-                    <h3 class="text-2xl font-black mt-2">Shaurya Enterprises Control Panel</h3>
-                    <p class="text-xs text-slate-400 mt-1">Manage UPI settings, customer points, and broadcast messages.</p>
+                    <span class="bg-amber-100 text-amber-800 text-xs font-black px-3 py-1 rounded-full uppercase">Restricted Access</span>
+                    <h3 class="text-2xl font-black mt-2">ओनर पोर्टल लॉगिन</h3>
+                    <p class="text-xs text-slate-500 mt-1">ओनर डैशबोर्ड खोलने के लिए सीक्रेट पासवर्ड दर्ज करें।</p>
                 </div>
-                <button onclick="lockOwnerPortal()" class="bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow">
-                    <i class="fa-solid fa-lock mr-1"></i> Lock Admin Portal
-                </button>
+                <div class="space-y-3">
+                    <input type="password" id="ownerPassInput" placeholder="Enter Owner Password" onkeydown="if(event.key==='Enter') verifyOwnerPassword()" class="w-full text-center tracking-widest text-lg font-black bg-slate-100 dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-700 px-4 py-3 rounded-xl focus:outline-none focus:border-indigo-600">
+                    <button onclick="verifyOwnerPassword()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-black py-3.5 rounded-xl shadow-lg text-sm cursor-pointer">
+                        <i class="fa-solid fa-key mr-1"></i> अनलॉक ओनर पोर्टल (Unlock Dashboard)
+                    </button>
+                </div>
             </div>
 
-            <!-- Owner Action Sections -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Unlocked Owner Dashboard -->
+            <div id="ownerUnlockedDashboard" class="hidden space-y-6">
                 
-                <!-- 1. UPI & Fee Settings -->
-                <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-700">
-                    <h4 class="font-bold text-lg mb-4 text-indigo-600"><i class="fa-solid fa-qrcode mr-2"></i> UPI & Fee Settings</h4>
-                    <div class="space-y-4">
+                <!-- Owner Header & Live Summary Stats -->
+                <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-6 rounded-3xl shadow-2xl border border-indigo-500/30 space-y-6">
+                    <div class="flex flex-wrap justify-between items-center gap-4">
                         <div>
-                            <label class="block text-xs font-bold uppercase mb-1 text-slate-500">Registration Fee (₹)</label>
-                            <select id="ownerFeeSetting" onchange="updateUpiSettings()" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-4 py-2.5 rounded-2xl text-sm font-bold">
-                                <option value="10">₹10</option>
-                                <option value="20">₹20</option>
-                                <option value="30">₹30</option>
-                                <option value="50">₹50</option>
+                            <span class="bg-amber-400 text-slate-950 text-xs font-black px-3 py-1 rounded-full uppercase">Admin Control Panel</span>
+                            <h3 class="text-2xl font-black mt-2">SHAURYA ENTERPRISES — ओनर पोर्टल डैशबोर्ड</h3>
+                            <p class="text-xs text-indigo-200">Powered by SV Fintech | Real-Time Customer, Fee & Broadcast Management</p>
+                        </div>
+                        <button onclick="lockOwnerPortal()" class="bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow flex items-center gap-1.5 cursor-pointer">
+                            <i class="fa-solid fa-lock"></i> Lock Owner Portal
+                        </button>
+                    </div>
+
+                    <!-- Live Daily Metrics Bar -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-white/10 p-4 rounded-2xl border border-white/10">
+                            <p class="text-xs text-indigo-200">Total Customers</p>
+                            <h4 class="text-2xl font-black mt-1" id="statTotalCust">0</h4>
+                        </div>
+                        <div class="bg-emerald-500/20 p-4 rounded-2xl border border-emerald-400/30">
+                            <p class="text-xs text-emerald-200">Paid Registrations</p>
+                            <h4 class="text-2xl font-black text-emerald-300 mt-1" id="statPaidCust">0</h4>
+                        </div>
+                        <div class="bg-amber-500/20 p-4 rounded-2xl border border-amber-400/30">
+                            <p class="text-xs text-amber-200">Total Active Coins</p>
+                            <h4 class="text-2xl font-black text-amber-300 mt-1" id="statTotalCoins">0</h4>
+                        </div>
+                        <div class="bg-pink-500/20 p-4 rounded-2xl border border-pink-400/30">
+                            <p class="text-xs text-pink-200">Current Reg. Fee</p>
+                            <h4 class="text-2xl font-black text-pink-300 mt-1">₹<span id="statCurrentFee">10</span></h4>
+                        </div>
+                    </div>
+
+                    <!-- 3 MAIN OWNER DASHBOARD OPTIONS (Banner Buttons as Requested) -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
+                        <button onclick="switchOwnerSubTab('upi')" id="ownerTabUpiBtn" class="bg-amber-400 text-slate-950 font-black p-4 rounded-2xl text-left flex items-center gap-3 shadow-lg transition cursor-pointer">
+                            <div class="w-11 h-11 rounded-xl bg-slate-950 text-amber-400 flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fa-solid fa-qrcode"></i>
+                            </div>
+                            <div>
+                                <p class="text-[11px] uppercase font-extrabold opacity-80">Option 1</p>
+                                <p class="text-sm font-black">यूपीआई पेमेंट सेट (UPI Fee Set)</p>
+                            </div>
+                        </button>
+
+                        <button onclick="switchOwnerSubTab('directory')" id="ownerTabDirBtn" class="bg-white/10 hover:bg-white/20 text-white font-bold p-4 rounded-2xl text-left flex items-center gap-3 border border-white/15 transition cursor-pointer">
+                            <div class="w-11 h-11 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fa-solid fa-users-gear"></i>
+                            </div>
+                            <div>
+                                <p class="text-[11px] uppercase font-extrabold text-indigo-300">Option 2</p>
+                                <p class="text-sm font-black">कस्टमर डायरेक्टरी, पॉइंट एंड डिटेल</p>
+                            </div>
+                        </button>
+
+                        <button onclick="switchOwnerSubTab('broadcast')" id="ownerTabBroadBtn" class="bg-white/10 hover:bg-white/20 text-white font-bold p-4 rounded-2xl text-left flex items-center gap-3 border border-white/15 transition cursor-pointer">
+                            <div class="w-11 h-11 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-lg flex-shrink-0">
+                                <i class="fa-solid fa-bullhorn"></i>
+                            </div>
+                            <div>
+                                <p class="text-[11px] uppercase font-extrabold text-emerald-300">Option 3</p>
+                                <p class="text-sm font-black">ब्रॉडकास्ट मैसेंजर सेंटर</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- OWNER SUB-SECTION 1: UPI PAYMENT SET -->
+                <div id="ownerSubUpi" class="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-xl border border-slate-200 dark:border-slate-800 space-y-6">
+                    <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
+                        <h4 class="text-xl font-black flex items-center gap-2">
+                            <i class="fa-solid fa-indian-rupee-sign text-amber-500"></i> यूपीआई रजिस्ट्रेशन फीस और बोनस सेटिंग (UPI Payment Set)
+                        </h4>
+                        <p class="text-xs text-slate-500 mt-1">यहाँ से तय करें कि नए कस्टमर के रजिस्ट्रेशन के समय कितने रुपये का QR कोड जनरेट होगा।</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                        <div class="space-y-4">
+                            <label class="block text-xs font-bold uppercase text-slate-500">Quick Select Registration Fee (तुरंत चुनें)</label>
+                            <div class="grid grid-cols-4 gap-3">
+                                <button onclick="setOwnerFeeAmount(10)" class="bg-indigo-50 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white font-black py-3 rounded-xl border border-indigo-200 dark:border-slate-700 text-sm transition cursor-pointer">₹10</button>
+                                <button onclick="setOwnerFeeAmount(20)" class="bg-indigo-50 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white font-black py-3 rounded-xl border border-indigo-200 dark:border-slate-700 text-sm transition cursor-pointer">₹20</button>
+                                <button onclick="setOwnerFeeAmount(30)" class="bg-indigo-50 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white font-black py-3 rounded-xl border border-indigo-200 dark:border-slate-700 text-sm transition cursor-pointer">₹30</button>
+                                <button onclick="setOwnerFeeAmount(50)" class="bg-indigo-50 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white font-black py-3 rounded-xl border border-indigo-200 dark:border-slate-700 text-sm transition cursor-pointer">₹50</button>
+                            </div>
+
+                            <div class="pt-2">
+                                <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Custom Registration Fee (मनचाहा अमाउंट डालें ₹)</label>
+                                <div class="flex gap-2">
+                                    <input type="number" id="customFeeInput" value="10" min="1" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 px-4 py-2.5 rounded-xl text-sm font-black">
+                                    <button onclick="saveCustomFeeAmount()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-black px-6 py-2.5 rounded-xl text-xs shadow cursor-pointer">
+                                        Save Fee
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 p-4 rounded-2xl text-xs space-y-1">
+                                <p class="font-black text-amber-800 dark:text-amber-300">📌 ऑटोमैटिक कॉइन नियम (Active Rules):</p>
+                                <p>• QR स्कैन करके पेमेंट करने वाले को: <strong>40 Points (Coins)</strong></p>
+                                <p>• बिना पेमेंट रजिस्ट्रेशन करने वाले को: <strong>10 Points (Coins)</strong></p>
+                                <p>• रेफर करने वाले कस्टमर को: <strong>20 Points (Coins)</strong></p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-center space-y-3">
+                            <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-3 py-1 rounded-full">Live QR Preview</span>
+                            <div id="ownerQrPreview" class="bg-white p-3 rounded-xl inline-block shadow"></div>
+                            <p class="text-sm font-black">Current Fee: <span class="text-indigo-600">₹<span id="ownerPreviewFeeText">10</span></span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OWNER SUB-SECTION 2: CUSTOMER DIRECTORY, POINTS & DETAILS -->
+                <div id="ownerSubDirectory" class="hidden bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-xl border border-slate-200 dark:border-slate-800 space-y-6">
+                    <div class="flex flex-wrap justify-between items-center gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+                        <div>
+                            <h4 class="text-xl font-black flex items-center gap-2">
+                                <i class="fa-solid fa-address-book text-indigo-600"></i> कस्टमर डायरेक्टरी, पॉइंट अपडेट & फुल हिस्ट्री
+                            </h4>
+                            <p class="text-xs text-slate-500 mt-1">पॉपअप से किसी भी कस्टमर को सेलेक्ट करें, उसका डिटेल एडिट करें, पॉइंट जोड़ें/घटाएं और उसकी पूरी हिस्ट्री देखें।</p>
+                        </div>
+                        <!-- Popup Selector Dropdown -->
+                        <div class="w-full sm:w-80">
+                            <label class="block text-[11px] font-extrabold uppercase text-indigo-600 mb-1">Select Customer Popup (कस्टमर चुनें):</label>
+                            <select id="ownerCustomerPopupSelect" onchange="selectCustomerInOwnerDirectory(this.value)" class="w-full bg-indigo-50 dark:bg-slate-800 border-2 border-indigo-500 px-4 py-2.5 rounded-xl text-sm font-black cursor-pointer">
+                                <!-- Populated dynamically -->
                             </select>
                         </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase mb-1 text-slate-500">Owner UPI ID</label>
-                            <input type="text" id="ownerUpiInput" value="Q708238096@ybl" onchange="updateUpiSettings()" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-4 py-2.5 rounded-2xl text-sm font-bold">
+                    </div>
+
+                    <!-- Selected Customer Full Management Workspace -->
+                    <div id="ownerSelectedCustWorkspace" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                        
+                        <!-- Left: Edit Customer Details & Add/Delete Points -->
+                        <div class="lg:col-span-6 space-y-6">
+                            <!-- Edit Profile Card -->
+                            <div class="bg-slate-50 dark:bg-slate-800/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <h5 class="font-black text-sm uppercase text-indigo-600 dark:text-indigo-400">
+                                        <i class="fa-solid fa-user-pen mr-1"></i> कस्टमर डिटेल एडिट करें (Edit Details)
+                                    </h5>
+                                    <button onclick="deleteSelectedCustomer()" class="text-rose-600 hover:underline text-xs font-bold cursor-pointer">
+                                        <i class="fa-solid fa-trash-can"></i> Delete Customer
+                                    </button>
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="text-[11px] font-bold text-slate-500">Customer Name</label>
+                                        <input type="text" id="editCustName" class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 px-3 py-2 rounded-xl text-xs font-bold">
+                                    </div>
+                                    <div>
+                                        <label class="text-[11px] font-bold text-slate-500">Mobile Number</label>
+                                        <input type="text" id="editCustMobile" class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 px-3 py-2 rounded-xl text-xs font-bold">
+                                    </div>
+                                    <div>
+                                        <label class="text-[11px] font-bold text-slate-500">ID Number (Aadhaar/PAN)</label>
+                                        <input type="text" id="editCustId" class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 px-3 py-2 rounded-xl text-xs font-bold">
+                                    </div>
+                                    <div>
+                                        <label class="text-[11px] font-bold text-slate-500">Reg. Fee Status</label>
+                                        <select id="editCustPaidStatus" class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 px-3 py-2 rounded-xl text-xs font-bold">
+                                            <option value="true">Paid (Verified)</option>
+                                            <option value="false">Not Paid</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button onclick="saveCustomerEditedDetails()" class="w-full bg-slate-900 dark:bg-indigo-600 hover:opacity-90 text-white font-bold py-2.5 rounded-xl text-xs shadow cursor-pointer">
+                                    <i class="fa-solid fa-floppy-disk mr-1"></i> डिटेल सेव करें (Update Details)
+                                </button>
+                            </div>
+
+                            <!-- Manual Credit Point Add / Deduct Card -->
+                            <div class="bg-indigo-50/70 dark:bg-indigo-950/30 p-5 rounded-2xl border-2 border-indigo-500/40 space-y-4">
+                                <div class="flex justify-between items-center">
+                                    <h5 class="font-black text-sm uppercase text-indigo-700 dark:text-indigo-300">
+                                        <i class="fa-solid fa-coins mr-1"></i> क्रेडिट पॉइंट जोड़ें या घटाएं (Add / Delete Points)
+                                    </h5>
+                                    <span class="bg-amber-400 text-slate-950 text-xs font-black px-3 py-1 rounded-full">
+                                        Balance: <span id="ownerSelectedCoinBal">0</span> Coins
+                                    </span>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="text-[11px] font-bold text-slate-600 dark:text-slate-300">Action (क्या करना है?)</label>
+                                        <select id="ownerPointAction" class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 px-3 py-2.5 rounded-xl text-xs font-black">
+                                            <option value="add">➕ Add Points (पॉइंट जोड़ें)</option>
+                                            <option value="deduct">➖ Delete/Deduct Points (पॉइंट घटाएं)</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-[11px] font-bold text-slate-600 dark:text-slate-300">Points (कितना पॉइंट?)</label>
+                                        <input type="number" id="ownerPointAmount" value="40" min="1" class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 px-3 py-2.5 rounded-xl text-xs font-black">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="text-[11px] font-bold text-slate-600 dark:text-slate-300">किस बेसिस पर पॉइंट ऐड/डिलीट किया जा रहा है? (Note / Reason) *</label>
+                                    <input type="text" id="ownerPointNote" placeholder="जैसे: 40 पॉइंट - मोबाइल रिचार्ज, लोन फाइल, कैशबैक..." class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 px-3.5 py-2.5 rounded-xl text-xs font-semibold mt-1">
+                                </div>
+
+                                <button onclick="submitOwnerPointChange()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-black py-3 rounded-xl text-xs shadow-lg cursor-pointer">
+                                    <i class="fa-solid fa-check-circle mr-1"></i> सबमिट करें (Submit Point Update)
+                                </button>
+                            </div>
                         </div>
-                        <p class="text-xs text-emerald-600 font-semibold bg-emerald-50 dark:bg-emerald-950/40 p-3 rounded-xl">✓ UPI and Registration Fee updated live for new registrations.</p>
+
+                        <!-- Right: Selected Customer's Complete Transaction History for Owner -->
+                        <div class="lg:col-span-6 bg-slate-50 dark:bg-slate-800/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-center mb-3">
+                                    <h5 class="font-black text-sm uppercase text-slate-700 dark:text-slate-200">
+                                        <i class="fa-solid fa-list-check mr-1 text-emerald-600"></i> इस कस्टमर की पूरी पॉइंट हिस्ट्री (Point History)
+                                    </h5>
+                                    <span class="text-xs font-bold text-slate-500" id="ownerCustHistoryCount">0 Records</span>
+                                </div>
+                                <div class="overflow-y-auto max-h-96 pr-1">
+                                    <table class="w-full text-left text-xs">
+                                        <thead class="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 uppercase font-bold">
+                                            <tr>
+                                                <th class="p-2.5 rounded-l-lg">Date</th>
+                                                <th class="p-2.5">Note / Basis</th>
+                                                <th class="p-2.5 rounded-r-lg text-right">Points</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="ownerSelectedHistoryBody" class="divide-y divide-slate-200 dark:divide-slate-700">
+                                            <!-- Populated dynamically -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-                <!-- 2. Customer Directory & Point Adjuster -->
-                <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-700 lg:col-span-2">
-                    <div class="flex justify-between items-center mb-4">
-                        <h4 class="font-bold text-lg text-indigo-600"><i class="fa-solid fa-users-gear mr-2"></i> Customer Directory & Points</h4>
-                        <span class="bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 text-xs font-bold px-3 py-1 rounded-full" id="totalCustomerCount">0 Registered</span>
+                <!-- OWNER SUB-SECTION 3: BROADCAST MESSENGER CENTER -->
+                <div id="ownerSubBroadcast" class="hidden bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-xl border border-slate-200 dark:border-slate-800 space-y-6">
+                    <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
+                        <h4 class="text-xl font-black flex items-center gap-2">
+                            <i class="fa-solid fa-paper-plane text-emerald-600"></i> ब्रॉडकास्ट मैसेंजर सेंटर (All Customers A-to-Z List)
+                        </h4>
+                        <p class="text-xs text-slate-500 mt-1">ऊपर पॉपअप से जिस टॉपिक (लोन, रिचार्ज, निकासी/जमा, फार्मेसी) को सेलेक्ट करेंगे, उसका मैसेज ऑटोमैटिक सेट हो जाएगा। नीचे कस्टमर के आगे WhatsApp या SMS आइकन दबाते जाएं, मैसेज खुल-खुल कर जाता रहेगा।</p>
                     </div>
-                    <p class="text-xs text-slate-500 mb-4">Click any customer below to edit points, view history, or manage details.</p>
-                    <div id="ownerCustomerList" class="space-y-3 max-h-72 overflow-y-auto pr-1"></div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                        <div class="lg:col-span-5 space-y-4">
+                            <div>
+                                <label class="block text-xs font-black uppercase text-indigo-600 mb-1">1. किस रिगार्डिंग मैसेज करना है? (Select Topic Popup)</label>
+                                <select id="broadcastTopicSelect" onchange="autoSetBroadcastMessage()" class="w-full bg-indigo-50 dark:bg-slate-800 border-2 border-indigo-500 px-4 py-3 rounded-xl text-sm font-black cursor-pointer">
+                                    <option value="loan">🏦 लोन सर्विसेज ऑफर (Loan Regarding Message)</option>
+                                    <option value="recharge">📱 मोबाइल/DTH रिचार्ज कैशबैक ऑफर (Recharge Regarding)</option>
+                                    <option value="cash">💸 पैसा निकालने / जमा करने पर डिस्काउंट (Cash AEPS/DMT Offer)</option>
+                                    <option value="pharmacy">💊 ऑनलाइन फार्मेसी दवा डिस्काउंट (Pharmacy Offer)</option>
+                                    <option value="coins">🪙 कॉइन बैलेंस और रिडेम्पशन रिमाइंडर (Coin Balance Alert)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <label class="text-xs font-bold uppercase text-slate-500">2. ऑटो-जनरेटेड मैसेज (चाहें तो एडिट करें)</label>
+                                    <button onclick="copyBroadcastText()" class="text-xs font-bold text-indigo-600 hover:underline cursor-pointer">
+                                        <i class="fa-regular fa-copy"></i> Copy Text
+                                    </button>
+                                </div>
+                                <textarea id="broadcastTextArea" rows="6" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 p-3.5 rounded-2xl text-xs font-semibold leading-relaxed"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- A to Z All Customers Dispatch List -->
+                        <div class="lg:col-span-7 space-y-3">
+                            <div class="flex justify-between items-center">
+                                <label class="text-xs font-black uppercase text-slate-600 dark:text-slate-300">
+                                    3. All Customers List (A to Z) — क्लिक करते जाएं और भेजते जाएं:
+                                </label>
+                                <input type="text" id="broadcastSearchInput" oninput="renderOwnerBroadcastList()" placeholder="Search name or mobile..." class="bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-xl text-xs font-semibold border border-slate-300 dark:border-slate-700">
+                            </div>
+                            <div id="ownerBroadcastCustomerRows" class="space-y-2.5 max-h-96 overflow-y-auto pr-1">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-            </div>
-
-            <!-- 3. Broadcast Messenger Center -->
-            <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-700">
-                <h4 class="font-bold text-lg mb-2 text-emerald-600"><i class="fa-solid fa-bullhorn mr-2"></i> Broadcast Messenger Center</h4>
-                <p class="text-xs text-slate-500 mb-4">Select a template and dispatch offers via WhatsApp or SMS to individual customers.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-xs font-bold uppercase mb-1 text-slate-500">Message Template</label>
-                            <select id="broadcastTemplateSelect" onchange="loadBroadcastTemplate()" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-4 py-3 rounded-2xl text-sm">
-                                <option value="loan">Loan Services Offer (Instant Approval)</option>
-                                <option value="pharmacy">Online Pharmacy Discount Offer</option>
-                                <option value="recharge">Money Transfer & Recharge Service Update</option>
-                                <option value="custom">Custom Message</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase mb-1 text-slate-500">Editable Message</label>
-                            <textarea id="broadcastMessageBox" rows="3" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 p-3 rounded-2xl text-sm"></textarea>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase mb-2 text-slate-500">Send to Customer</label>
-                        <div id="broadcastCustomerList" class="space-y-2 max-h-48 overflow-y-auto pr-1 border border-slate-200 dark:border-slate-700 p-3 rounded-2xl bg-slate-50 dark:bg-slate-900"></div>
-                    </div>
-                </div>
             </div>
         </div>
 
+        <!-- ==================== CUSTOMER FEEDBACK SECTION (Latest 3 + View More) ==================== -->
+        <section class="bg-white dark:bg-slate-900 rounded-3xl p-6 md:p-8 shadow-xl border border-slate-200 dark:border-slate-800 space-y-6">
+            <div class="flex flex-wrap justify-between items-center gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+                <div>
+                    <span class="bg-amber-100 text-amber-800 text-[11px] font-black px-3 py-0.5 rounded-full uppercase">Verified Customer Reviews</span>
+                    <h3 class="text-xl sm:text-2xl font-black mt-1">कस्टमर फीडबैक और रेटिंग (Customer Feedback)</h3>
+                </div>
+                <button onclick="toggleFeedbackForm()" class="bg-gradient-to-r from-amber-500 to-orange-600 text-white font-black px-5 py-2.5 rounded-xl text-xs shadow-lg flex items-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-star"></i> अपना फीडबैक दें (Give Feedback)
+                </button>
+            </div>
+
+            <!-- Inline Collapsible Feedback Submission Form -->
+            <div id="feedbackFormBox" class="hidden bg-slate-50 dark:bg-slate-800/70 p-5 rounded-2xl border-2 border-amber-400 space-y-4">
+                <h4 class="font-black text-sm uppercase text-amber-600">अपना अनुभव साझा करें (Submit Your Review)</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold mb-1">आपका नाम (Name) *</label>
+                        <input type="text" id="fbUserName" placeholder="Enter Name" class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 px-3.5 py-2 rounded-xl text-xs font-semibold">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold mb-1">मोबाइल नंबर (Mobile) *</label>
+                        <input type="tel" id="fbUserMobile" maxlength="10" placeholder="10-digit Mobile" class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 px-3.5 py-2 rounded-xl text-xs font-semibold">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold mb-1">रेटिंग पॉइंट (Rating) *</label>
+                        <select id="fbUserRating" class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 px-3.5 py-2 rounded-xl text-xs font-bold">
+                            <option value="5">⭐⭐⭐⭐⭐ (5/5 - बहुत शानदार)</option>
+                            <option value="4">⭐⭐⭐⭐ (4/5 - बहुत अच्छा)</option>
+                            <option value="3">⭐⭐⭐ (3/5 - अच्छा)</option>
+                            <option value="2">⭐⭐ (2/5 - ठीक है)</option>
+                            <option value="1">⭐ (1/5 - सुधार चाहिए)</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold mb-1">आपका नोट / संदेश (Review Note) *</label>
+                    <textarea id="fbUserNote" rows="2" placeholder="हमारी सर्विस के बारे में लिखें..." class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 p-3 rounded-xl text-xs font-semibold"></textarea>
+                </div>
+                <div class="flex gap-3">
+                    <button onclick="submitNewFeedback()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-black px-6 py-2.5 rounded-xl text-xs shadow cursor-pointer">
+                        सबमिट करें (Submit Feedback)
+                    </button>
+                    <button onclick="toggleFeedbackForm()" class="bg-slate-200 dark:bg-slate-700 px-4 py-2.5 rounded-xl text-xs font-bold cursor-pointer">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+
+            <!-- Top 3 Latest Reviews Grid -->
+            <div id="top3FeedbackGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Populated dynamically -->
+            </div>
+
+            <!-- Hidden Extra Reviews Container (Shown when View More clicked) -->
+            <div id="moreFeedbackGrid" class="hidden grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 border-t border-slate-200 dark:border-slate-800">
+                <!-- Populated dynamically -->
+            </div>
+
+            <div class="text-center">
+                <button id="viewMoreFbBtn" onclick="toggleViewMoreFeedbacks()" class="bg-indigo-50 dark:bg-slate-800 hover:bg-indigo-100 text-indigo-600 dark:text-indigo-400 font-black px-6 py-2.5 rounded-xl text-xs transition cursor-pointer">
+                    View More Reviews <i class="fa-solid fa-chevron-down ml-1"></i>
+                </button>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Point Adjustment Modal (Owner) -->
-    <div id="pointModal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 max-w-md w-full shadow-2xl border border-slate-200 dark:border-slate-700">
-            <h3 class="text-xl font-black mb-2">Manage Customer: <span id="modalCustName" class="text-indigo-600">Customer</span></h3>
-            <p class="text-xs text-slate-500 mb-4">Current Points: <span id="modalCurrentPoints" class="font-bold">0</span></p>
-            
-            <div class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold uppercase mb-1 text-slate-500">Action</label>
-                    <select id="modalActionType" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-4 py-2.5 rounded-2xl text-sm">
-                        <option value="add">Add Points (+)</option>
-                        <option value="deduct">Deduct Points (-)</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase mb-1 text-slate-500">Points Value</label>
-                    <input type="number" id="modalPointsVal" value="10" min="1" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-4 py-2.5 rounded-2xl text-sm">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase mb-1 text-slate-500">Audit Note / Reason</label>
-                    <input type="text" id="modalAuditNote" placeholder="e.g. Service bonus" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 px-4 py-2.5 rounded-2xl text-sm">
-                </div>
-                <div class="flex gap-3 pt-2">
-                    <button onclick="savePointAdjustment()" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-2xl text-sm shadow">Save Changes</button>
-                    <button onclick="closePointModal()" class="bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white font-bold px-4 py-3 rounded-2xl text-sm">Cancel</button>
-                </div>
+    <!-- ==================== REGISTRATION UPI QR MODAL POPUP ==================== -->
+    <div id="regQrModal" class="hidden fixed inset-0 bg-black/75 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 max-w-md w-full shadow-2xl border-2 border-amber-400 text-center space-y-4">
+            <span class="bg-amber-100 text-amber-800 text-xs font-black px-3 py-1 rounded-full uppercase">Step 2: Registration Fee & Bonus</span>
+            <h3 class="text-xl font-black">QR स्कैन करके पेमेंट करें</h3>
+            <p class="text-xs text-slate-500">
+                QR पेमेंट करने पर आपको तुरंत <strong class="text-emerald-600">40 Coins</strong> मिलेंगे! बिना पेमेंट रजिस्टर करने पर <strong class="text-amber-600">10 Coins</strong> मिलेंगे।
+            </p>
+
+            <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 inline-block">
+                <div id="regDynamicQrBox" class="bg-white p-3 rounded-xl inline-block"></div>
+                <p class="text-base font-black text-indigo-600 mt-2">Registration Fee: ₹<span id="modalFeeAmt">10</span></p>
+            </div>
+
+            <div class="text-left">
+                <label class="block text-[11px] font-bold uppercase text-slate-500 mb-1">UTR / UPI Ref No. (यदि पेमेंट किया है तो डालें)</label>
+                <input type="text" id="regUtrInput" placeholder="Optional 12-digit UTR Number" class="w-full bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 px-3.5 py-2 rounded-xl text-xs font-bold">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                <button onclick="completeCustomerRegistration(true)" class="bg-emerald-600 hover:bg-emerald-500 text-white font-black py-3 px-4 rounded-xl text-xs shadow-lg cursor-pointer">
+                    <i class="fa-solid fa-check-double mr-1"></i> Paid (पाएं 40 Coins)
+                </button>
+                <button onclick="completeCustomerRegistration(false)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-black py-3 px-4 rounded-xl text-xs shadow-lg cursor-pointer">
+                    <i class="fa-solid fa-clock mr-1"></i> Not Paid (पाएं 10 Coins)
+                </button>
+            </div>
+            <button onclick="closeRegQrModal()" class="text-xs text-slate-400 hover:text-slate-600 underline cursor-pointer">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Pre-Footer Dark Bottom Section & Official Footer -->
+    <div class="bg-black text-slate-300 py-8 mt-10 border-t-4 border-amber-500">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+            <div>
+                <h4 class="text-lg font-black text-white uppercase tracking-wider">SHAURYA ENTERPRISES</h4>
+                <p class="text-xs text-amber-400 font-bold mt-0.5">Powered by SV Fintech</p>
+                <p class="text-xs text-slate-400 mt-2">All-in-One Digital Banking, Instant Loan Assistance, Online Pharmacy & Customer Loyalty Coin Portal.</p>
+            </div>
+            <div>
+                <h5 class="text-sm font-black text-white uppercase mb-2">Our Head Office</h5>
+                <p class="text-xs text-slate-400"><i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> Noida, Near Sunday Market, Sector-62 Area, Gautam Buddha Nagar, Uttar Pradesh - 201301</p>
+                <p class="text-xs text-slate-400 mt-1"><i class="fa-brands fa-whatsapp text-emerald-400 mr-1"></i> Support: +91 9250525720</p>
+            </div>
+            <div class="flex flex-col justify-center items-center md:items-end gap-2">
+                <a href="https://wa.me/919250525720" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white font-black px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow-lg">
+                    <i class="fa-brands fa-whatsapp text-base"></i> Connect on WhatsApp
+                </a>
+                <span class="text-[11px] text-slate-500">Cloud Sync Engine: ntfy.sh + LocalStorage</span>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-6 mt-auto border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 text-center space-y-1">
-            <p class="text-sm font-bold text-slate-200">© 2026 SHAURYA ENTERPRISES. All Rights Reserved.</p>
-            <p class="text-xs text-slate-500">Noida, Near Sunday Market, Uttar Pradesh (Pin: 201301) | Powered by SV Fintech</p>
-        </div>
+    <footer class="bg-slate-950 text-slate-500 py-4 border-t border-slate-900 text-center text-xs font-semibold">
+        © 2026 SHAURYA ENTERPRISES (Powered by SV Fintech). All Rights Reserved.
     </footer>
 
-    <!-- JavaScript -->
+    <!-- ==================== COMPLETE APPLICATION JAVASCRIPT ==================== -->
     <script>
-        let appState = {
-            lang: 'en',
-            currentUserMobile: null,
-            regFee: 10,
-            ownerUpi: 'Q708238096@ybl',
-            customers: JSON.parse(localStorage.getItem('shaurya_customers_v2')) || [
-                { mobile: '9876543210', name: 'Rahul Singh', idNum: 'ADH-8892', points: 40, feePaid: true, history: [{date: '2026-11-01', note: 'Registration QR Payment (40 Coins)', points: 40}] }
+        const UPI_ID_SECRET = "Q708238096@ybl";
+        const OWNER_PASS = "1993";
+        const NTFY_TOPIC = "shaurya_svfintech_live_2026";
+
+        let state = {
+            lang: 'hi',
+            regFee: Number(localStorage.getItem('se_reg_fee')) || 10,
+            loggedInCustomerMobile: null,
+            ownerUnlocked: false,
+            selectedOwnerCustMobile: null,
+            showAllFeedbacks: false,
+            customers: JSON.parse(localStorage.getItem('se_customers_v2')) || [
+                {
+                    name: "अमित कुमार",
+                    mobile: "9876543210",
+                    idNum: "ID-8841",
+                    points: 60,
+                    paid: true,
+                    utr: "412589632145",
+                    history: [
+                        { date: "2026-11-01", note: "QR Paid Registration Bonus", points: 40 },
+                        { date: "2026-11-05", note: "Referral Bonus (Friend Joined)", points: 20 }
+                    ]
+                },
+                {
+                    name: "संदीप वर्मा",
+                    mobile: "9123456789",
+                    idNum: "PAN-5521",
+                    points: 50,
+                    paid: true,
+                    utr: "412599874512",
+                    history: [
+                        { date: "2026-11-03", note: "QR Paid Registration Bonus", points: 40 },
+                        { date: "2026-11-06", note: "Mobile Recharge Bonus", points: 10 }
+                    ]
+                },
+                {
+                    name: "प्रिया शर्मा",
+                    mobile: "9988776655",
+                    idNum: "ID-3319",
+                    points: 10,
+                    paid: false,
+                    utr: "Not Paid",
+                    history: [
+                        { date: "2026-11-06", note: "Unpaid Registration Welcome Points", points: 10 }
+                    ]
+                }
+            ],
+            feedbacks: JSON.parse(localStorage.getItem('se_feedbacks_v2')) || [
+                { name: "राकेश सिंह", mobile: "9811223344", rating: 5, note: "शौर्य एंटरप्राइजेज (SV Fintech) की लोन और फार्मेसी सर्विस बहुत तेज़ है। मुझे रजिस्ट्रेशन पर तुरंत 40 कॉइन मिले!", date: "2026-11-07" },
+                { name: "पूजा गुप्ता", mobile: "9711223355", rating: 5, note: "4 कॉइन = ₹1 वाला सिस्टम बहुत बढ़िया है। मैंने अपने रिचार्ज में पॉइंट्स एडजस्ट करवाए।", date: "2026-11-06" },
+                { name: "विकास यादव", mobile: "9654321890", rating: 5, note: "नोएडा संडे मार्केट के पास सबसे भरोसेमंद पोर्टल। रेफर करने पर मुझे 20 बोनस पॉइंट भी मिले।", date: "2026-11-05" },
+                { name: "दीपक कुमार", mobile: "9543219876", rating: 4, note: "कस्टमर पोर्टल बहुत आसान है, केवल मोबाइल नंबर से लॉगिन हो जाता है।", date: "2026-11-02" }
             ]
         };
 
-        function saveToStorage() {
-            localStorage.setItem('shaurya_customers_v2', JSON.stringify(appState.customers));
+        // Normalize any mobile input (+91, 91, 0, spaces) to clean 10-digit number
+        function cleanMobileNumber(raw) {
+            let digits = String(raw || '').replace(/\D/g, '');
+            if (digits.length > 10) {
+                digits = digits.slice(-10);
+            }
+            return digits;
         }
 
+        function saveStateToCloudAndLocal() {
+            localStorage.setItem('se_reg_fee', state.regFee);
+            localStorage.setItem('se_customers_v2', JSON.stringify(state.customers));
+            localStorage.setItem('se_feedbacks_v2', JSON.stringify(state.feedbacks));
+            fetch(`https://ntfy.sh/${NTFY_TOPIC}`, {
+                method: 'POST',
+                body: JSON.stringify({ event: 'PORTAL_SYNC', fee: state.regFee, count: state.customers.length, ts: Date.now() })
+            }).catch(() => {});
+        }
+
+        // Theme & Language
         function toggleTheme() {
             const html = document.documentElement;
             const icon = document.getElementById('themeIcon');
             if (html.classList.contains('dark')) {
-                html.classList.remove('dark'); html.classList.add('light');
-                icon.className = 'fa-solid fa-moon';
+                html.classList.remove('dark');
+                icon.className = 'fa-solid fa-moon text-amber-300';
             } else {
-                html.classList.remove('light'); html.classList.add('dark');
-                icon.className = 'fa-solid fa-sun';
+                html.classList.add('dark');
+                icon.className = 'fa-solid fa-sun text-amber-400';
             }
         }
 
         function toggleLanguage() {
-            appState.lang = appState.lang === 'en' ? 'hi' : 'en';
-            alert(appState.lang === 'hi' ? 'भाषा बदलकर हिंदी कर दी गई है।' : 'Language switched to English.');
+            state.lang = state.lang === 'hi' ? 'en' : 'hi';
+            const dict = {
+                hi: {
+                    custPortalBtn: "कस्टमर पोर्टल (Customer Portal)",
+                    ownerPortalBtn: "ओनर पोर्टल (Owner Portal)",
+                    heroTitle: "लोन सर्विसेज, ऑनलाइन फार्मेसी और डिजिटल बैंकिंग — अब हर काम पर कमाएं रिवॉर्ड कॉइन्स!",
+                    loginCardTitle: "कस्टमर लॉगिन (Mobile Login)",
+                    regCardTitle: "नया कस्टमर रजिस्ट्रेशन (New Registration)"
+                },
+                en: {
+                    custPortalBtn: "Customer Portal",
+                    ownerPortalBtn: "Owner Admin Portal",
+                    heroTitle: "Loan Services, Online Pharmacy & Digital Banking — Earn Reward Coins on Every Service!",
+                    loginCardTitle: "Instant Mobile Login",
+                    regCardTitle: "New Customer Registration"
+                }
+            };
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[state.lang][key]) el.innerText = dict[state.lang][key];
+            });
         }
 
-        function switchTab(tab) {
-            document.getElementById('tabCustomerBtn').className = tab === 'customer' ? 'py-3 px-6 font-extrabold text-sm border-b-4 border-indigo-600 text-indigo-600 dark:text-indigo-400 flex items-center gap-2 transition' : 'py-3 px-6 font-extrabold text-sm text-slate-500 hover:text-indigo-600 border-b-4 border-transparent flex items-center gap-2 transition';
-            document.getElementById('customerSection').classList.toggle('hidden', tab !== 'customer');
-            document.getElementById('ownerSection').classList.add('hidden');
+        // Quick EMI Calculator
+        function calcEMI() {
+            const p = parseFloat(document.getElementById('emiAmount').value) || 0;
+            const n = parseInt(document.getElementById('emiMonths').value) || 1;
+            const totalWithInterest = p + (p * 0.10 * (n / 12));
+            const emi = Math.round(totalWithInterest / n);
+            document.getElementById('emiResult').innerText = `₹${emi.toLocaleString('en-IN')} / माह`;
         }
 
-        function promptOwnerLogin() {
-            const pin = prompt('Enter Owner Portal Password:');
-            if (pin === '1993') {
-                document.getElementById('tabOwnerBtn').className = 'py-3 px-6 font-extrabold text-sm border-b-4 border-indigo-600 text-indigo-600 dark:text-indigo-400 flex items-center gap-2 transition';
-                document.getElementById('customerSection').classList.add('hidden');
-                document.getElementById('ownerSection').classList.remove('hidden');
-                renderOwnerPortal();
-            } else if (pin !== null) {
-                alert('Incorrect Password! Access Denied.');
-            }
-        }
+        // Switch between Customer Portal & Owner Portal
+        function switchMainPortal(mode) {
+            const custSec = document.getElementById('customerPortalSection');
+            const ownerSec = document.getElementById('ownerPortalSection');
+            const navCust = document.getElementById('navCustomerBtn');
+            const navOwner = document.getElementById('navOwnerBtn');
 
-        function lockOwnerPortal() {
-            document.getElementById('ownerSection').classList.add('hidden');
-            switchTab('customer');
-        }
-
-        let pendingMobile = '';
-        function handleCustomerLogin() {
-            const m = document.getElementById('loginMobile').value.trim();
-            if (m.length !== 10) { alert('Please enter valid 10-digit mobile number.'); return; }
-            pendingMobile = m;
-            const existing = appState.customers.find(c => c.mobile === pendingMobile);
-            if (existing) {
-                appState.currentUserMobile = pendingMobile;
-                renderCustomerDashboard();
+            if (mode === 'customer') {
+                custSec.classList.remove('hidden');
+                ownerSec.classList.add('hidden');
+                navCust.className = "bg-amber-400 text-indigo-950 font-black px-5 py-2 rounded-xl text-xs md:text-sm shadow-md flex items-center gap-2 transition cursor-pointer";
+                navOwner.className = "bg-white/10 hover:bg-white/20 text-white font-bold px-5 py-2 rounded-xl text-xs md:text-sm flex items-center gap-2 transition cursor-pointer";
             } else {
-                document.getElementById('authCard').classList.add('hidden');
-                document.getElementById('registerModal').classList.remove('hidden');
-                document.getElementById('displayRegFee').innerText = appState.regFee;
-                document.getElementById('displayUpiId').innerText = appState.ownerUpi;
-                
-                const qrContainer = document.getElementById('qrcodeContainer');
-                qrContainer.innerHTML = '';
-                const qr = qrcode(0, 'M');
-                qr.addData(`upi://pay?pa=${appState.ownerUpi}&pn=ShauryaEnterprises&am=${appState.regFee}&cu=INR`);
-                qr.make();
-                qrContainer.innerHTML = qr.createSvgTag({cellSize: 4, margin: 2});
+                custSec.classList.add('hidden');
+                ownerSec.classList.remove('hidden');
+                navOwner.className = "bg-amber-400 text-indigo-950 font-black px-5 py-2 rounded-xl text-xs md:text-sm shadow-md flex items-center gap-2 transition cursor-pointer";
+                navCust.className = "bg-white/10 hover:bg-white/20 text-white font-bold px-5 py-2 rounded-xl text-xs md:text-sm flex items-center gap-2 transition cursor-pointer";
+                if (state.ownerUnlocked) {
+                    refreshOwnerDashboardAll();
+                }
             }
         }
 
-        function submitRegistration(isPaid) {
-            const name = document.getElementById('regName').value.trim();
-            const idNum = document.getElementById('regIdNum').value.trim();
-            if (!name || !idNum) { alert('Please enter Name and ID number.'); return; }
+        // Customer Login via Mobile Number (supports 0 / +91 prefixes)
+        function loginCustomerByMobile() {
+            const rawInput = document.getElementById('custLoginMobileInput').value;
+            const mob = cleanMobileNumber(rawInput);
 
-            const assignedPoints = isPaid ? 40 : 10;
-            const noteText = isPaid ? 'Registration QR Payment (40 Coins)' : 'Registration Free / Not Paid (10 Coins)';
+            if (mob.length !== 10) {
+                alert("कृपया सही 10 अंकों का मोबाइल नंबर दर्ज करें!");
+                return;
+            }
 
-            const newCust = {
-                mobile: pendingMobile,
-                name,
-                idNum,
-                points: assignedPoints,
-                feePaid: isPaid,
-                history: [{ date: new Date().toISOString().split('T')[0], note: noteText, points: assignedPoints }]
+            const found = state.customers.find(c => cleanMobileNumber(c.mobile) === mob);
+            if (!found) {
+                alert("यह मोबाइल नंबर अभी रजिस्टर्ड नहीं है! कृपया दाईं तरफ 'नया कस्टमर रजिस्ट्रेशन' फॉर्म भरकर पहले रजिस्टर करें।");
+                document.getElementById('regMobileNum').value = mob;
+                document.getElementById('regFullName').focus();
+                return;
+            }
+
+            state.loggedInCustomerMobile = found.mobile;
+            renderLoggedInCustomerDashboard();
+        }
+
+        // Registration Flow & Dynamic QR Popup
+        let pendingRegData = null;
+
+        function openRegistrationQRModal() {
+            const name = document.getElementById('regFullName').value.trim();
+            const mob = cleanMobileNumber(document.getElementById('regMobileNum').value);
+            const idNum = document.getElementById('regIdNumber').value.trim();
+            const refMob = cleanMobileNumber(document.getElementById('regReferralMobile').value);
+
+            if (!name || mob.length !== 10 || !idNum) {
+                alert("कृपया अपना नाम, 10 अंकों का मोबाइल नंबर और आईडी नंबर सही से भरें!");
+                return;
+            }
+
+            if (state.customers.some(c => cleanMobileNumber(c.mobile) === mob)) {
+                alert("यह मोबाइल नंबर पहले से रजिस्टर्ड है! सीधे लॉगिन करें।");
+                state.loggedInCustomerMobile = mob;
+                renderLoggedInCustomerDashboard();
+                return;
+            }
+
+            pendingRegData = { name, mobile: mob, idNum, refMob };
+
+            document.getElementById('modalFeeAmt').innerText = state.regFee;
+            document.getElementById('regUtrInput').value = '';
+            generateQRCodeInto('regDynamicQrBox', state.regFee);
+            document.getElementById('regQrModal').classList.remove('hidden');
+        }
+
+        function closeRegQrModal() {
+            document.getElementById('regQrModal').classList.add('hidden');
+        }
+
+        function generateQRCodeInto(elementId, amount) {
+            const container = document.getElementById(elementId);
+            if (!container) return;
+            container.innerHTML = '';
+            const qr = qrcode(0, 'M');
+            const upiUrl = `upi://pay?pa=${UPI_ID_SECRET}&pn=SHAURYA%20ENTERPRISES&am=${amount}&cu=INR`;
+            qr.addData(upiUrl);
+            qr.make();
+            container.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 2 });
+        }
+
+        // Complete Registration: Paid = 40 points, Unpaid = 10 points, Referrer = 20 points
+        function completeCustomerRegistration(isPaid) {
+            if (!pendingRegData) return;
+
+            const today = new Date().toISOString().split('T')[0];
+            const bonusPoints = isPaid ? 40 : 10;
+            const utrVal = document.getElementById('regUtrInput').value.trim() || (isPaid ? "QR-Scanned" : "Not Paid");
+
+            const newCustomer = {
+                name: pendingRegData.name,
+                mobile: pendingRegData.mobile,
+                idNum: pendingRegData.idNum,
+                points: bonusPoints,
+                paid: isPaid,
+                utr: utrVal,
+                history: [
+                    {
+                        date: today,
+                        note: isPaid ? `QR Paid Registration Bonus (₹${state.regFee})` : "Free/Unpaid Registration Welcome Points",
+                        points: bonusPoints
+                    }
+                ]
             };
 
-            appState.customers.push(newCust);
-            saveToStorage();
-            appState.currentUserMobile = pendingMobile;
-            document.getElementById('registerModal').classList.add('hidden');
-            renderCustomerDashboard();
-            alert(`Registration successful! You received ${assignedPoints} coins.`);
+            // Referral 20 Points Logic
+            let refMsg = "";
+            if (pendingRegData.refMob && pendingRegData.refMob.length === 10 && pendingRegData.refMob !== pendingRegData.mobile) {
+                const referrer = state.customers.find(c => cleanMobileNumber(c.mobile) === pendingRegData.refMob);
+                if (referrer) {
+                    referrer.points += 20;
+                    referrer.history.push({
+                        date: today,
+                        note: `Referral Bonus (${pendingRegData.name} Joined)`,
+                        points: 20
+                    });
+                    refMsg = `\n🎁 रेफर करने वाले (${referrer.name}) के वॉलेट में भी 20 कॉइन जोड़ दिए गए हैं!`;
+                }
+            }
+
+            state.customers.unshift(newCustomer);
+            saveStateToCloudAndLocal();
+
+            closeRegQrModal();
+            state.loggedInCustomerMobile = newCustomer.mobile;
+            renderLoggedInCustomerDashboard();
+
+            alert(`🎉 बधाई हो ${newCustomer.name}!\nआपका रजिस्ट्रेशन सफल रहा और आपके वॉलेट में ${bonusPoints} कॉइन जोड़ दिए गए हैं।${refMsg}`);
         }
 
-        function renderCustomerDashboard() {
-            document.getElementById('authCard').classList.add('hidden');
-            document.getElementById('registerModal').classList.add('hidden');
-            document.getElementById('customerDashboard').classList.remove('hidden');
-
-            const cust = appState.customers.find(c => c.mobile === appState.currentUserMobile);
+        function renderLoggedInCustomerDashboard() {
+            const cust = state.customers.find(c => cleanMobileNumber(c.mobile) === cleanMobileNumber(state.loggedInCustomerMobile));
             if (!cust) return;
 
-            document.getElementById('custProfileName').innerText = cust.name;
-            document.getElementById('custProfileMobile').innerText = '+91 ' + cust.mobile;
-            document.getElementById('custProfileId').innerText = cust.idNum;
-            document.getElementById('custWalletPoints').innerText = cust.points;
-            document.getElementById('custWalletRupees').innerText = (cust.points / 4).toFixed(2);
+            document.getElementById('customerAuthArea').classList.add('hidden');
+            document.getElementById('customerLoggedInDashboard').classList.remove('hidden');
 
-            const badge = document.getElementById('custFeeStatusBadge');
-            badge.className = cust.feePaid ? 'px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 mt-1 inline-block' : 'px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 mt-1 inline-block';
-            badge.innerText = cust.feePaid ? `Paid (40 Coins)` : `Pending (10 Coins)`;
+            document.getElementById('dashAvatar').innerText = cust.name.charAt(0).toUpperCase();
+            document.getElementById('dashCustName').innerText = cust.name;
+            document.getElementById('dashCustMobile').innerText = "+91 " + cust.mobile;
+            document.getElementById('dashCustId').innerText = cust.idNum;
+            document.getElementById('dashReferralCode').innerText = cust.mobile;
+            document.getElementById('dashCustCoins').innerText = cust.points;
+            document.getElementById('dashCustRupees').innerText = (cust.points / 4).toFixed(2);
 
-            const tbody = document.getElementById('customerTxTableBody');
+            const badge = document.getElementById('dashPaymentStatusBadge');
+            if (cust.paid) {
+                badge.className = "bg-emerald-100 text-emerald-800 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full";
+                badge.innerText = "Fee Paid (40 Coins Tier)";
+            } else {
+                badge.className = "bg-amber-100 text-amber-800 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full";
+                badge.innerText = "Not Paid (10 Coins Tier)";
+            }
+
+            // Populate Latest 5 Transactions
+            const tbody = document.getElementById('custLatest5Table');
             tbody.innerHTML = '';
-            [...cust.history].reverse().forEach(tx => {
+            const latest5 = [...cust.history].reverse().slice(0, 5);
+            latest5.forEach(item => {
+                const isPos = item.points >= 0;
                 tbody.innerHTML += `
-                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-900/50">
-                        <td class="p-3 text-xs">${tx.date}</td>
-                        <td class="p-3 font-medium">${tx.note}</td>
-                        <td class="p-3 font-bold text-indigo-600">+${tx.points}</td>
-                        <td class="p-3"><span class="bg-emerald-100 text-emerald-800 text-[10px] px-2.5 py-1 rounded-full font-bold">Success</span></td>
+                    <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50">
+                        <td class="p-3.5 font-semibold text-slate-500">${item.date}</td>
+                        <td class="p-3.5 font-bold">${item.note}</td>
+                        <td class="p-3.5 font-black ${isPos ? 'text-emerald-600' : 'text-rose-600'}">${isPos ? '+' : ''}${item.points} Coins</td>
+                        <td class="p-3.5 font-bold text-indigo-600">₹${(Math.abs(item.points) / 4).toFixed(2)}</td>
                     </tr>
                 `;
             });
         }
 
         function logoutCustomer() {
-            appState.currentUserMobile = null;
-            document.getElementById('customerDashboard').classList.add('hidden');
-            document.getElementById('authCard').classList.remove('hidden');
-            document.getElementById('loginMobile').value = '';
+            state.loggedInCustomerMobile = null;
+            document.getElementById('customerLoggedInDashboard').classList.add('hidden');
+            document.getElementById('customerAuthArea').classList.remove('hidden');
+            document.getElementById('custLoginMobileInput').value = '';
         }
 
-        function downloadCustomerHistory() {
-            const cust = appState.customers.find(c => c.mobile === appState.currentUserMobile);
+        function shareReferralOnWhatsApp() {
+            const cust = state.customers.find(c => cleanMobileNumber(c.mobile) === cleanMobileNumber(state.loggedInCustomerMobile));
             if (!cust) return;
-            let csv = 'Date,Description,Coins\n';
-            cust.history.forEach(t => { csv += `${t.date},"${t.note}",${t.points}\n`; });
-            const blob = new Blob([csv], { type: 'text/csv' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url; a.download = `statement_${cust.mobile}.csv`; a.click();
+            const text = `🎉 नमस्ते! SHAURYA ENTERPRISES (Powered by SV Fintech) पोर्टल पर रजिस्टर करें और तुरंत 40 कॉइन बोनस पाएं (4 कॉइन = ₹1)। रजिस्ट्रेशन करते समय मेरा रेफरल मोबाइल नंबर ${cust.mobile} डालें!`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
         }
 
-        function updateUpiSettings() {
-            appState.regFee = parseInt(document.getElementById('ownerFeeSetting').value);
-            appState.ownerUpi = document.getElementById('ownerUpiInput').value.trim();
-            alert('UPI and Registration fee settings updated successfully.');
+        function requestCoinRedemption() {
+            const cust = state.customers.find(c => cleanMobileNumber(c.mobile) === cleanMobileNumber(state.loggedInCustomerMobile));
+            if (!cust) return;
+            const rsVal = (cust.points / 4).toFixed(2);
+            const msg = `नमस्ते SHAURYA ENTERPRISES, मेरा नाम ${cust.name} (मोबाइल: ${cust.mobile}) है। मेरे वॉलेट में ${cust.points} कॉइन (वैल्यू: ₹${rsVal}) हैं, जिन्हें मैं रिडीम/एडजस्ट करवाना चाहता हूँ।`;
+            window.open(`https://wa.me/919250525720?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
-        function renderOwnerPortal() {
-            document.getElementById('totalCustomerCount').innerText = `${appState.customers.length} Registered`;
-            const dirList = document.getElementById('ownerCustomerList');
-            dirList.innerHTML = '';
-            appState.customers.forEach(c => {
-                dirList.innerHTML += `
-                    <div onclick="openPointModal('${c.mobile}')" class="bg-slate-50 dark:bg-slate-900 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-700 flex justify-between items-center cursor-pointer hover:border-indigo-500 transition">
-                        <div>
-                            <h5 class="font-bold text-sm">${c.name}</h5>
-                            <p class="text-xs text-slate-400">+91 ${c.mobile} | ID: ${c.idNum}</p>
-                        </div>
-                        <div class="text-right">
-                            <span class="bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 px-3 py-1 rounded-xl text-xs font-bold">${c.points} Coins</span>
-                            <p class="text-[10px] text-indigo-600 font-bold mt-1">Edit / History</p>
-                        </div>
-                    </div>
-                `;
+        function downloadCustomerStatementCSV() {
+            const cust = state.customers.find(c => cleanMobileNumber(c.mobile) === cleanMobileNumber(state.loggedInCustomerMobile));
+            if (!cust) return;
+            const months = document.getElementById('custHistoryPeriod').value;
+            let csv = `Customer Name,${cust.name}\nMobile,${cust.mobile}\nID Number,${cust.idNum}\nStatement Period,Last ${months} Month(s)\n\nDate,Description,Coins,Rupee Value\n`;
+            cust.history.forEach(h => {
+                csv += `${h.date},"${h.note}",${h.points},Rs.${(h.points / 4).toFixed(2)}\n`;
             });
-
-            const bList = document.getElementById('broadcastCustomerList');
-            bList.innerHTML = '';
-            appState.customers.forEach(c => {
-                bList.innerHTML += `
-                    <div class="flex justify-between items-center p-2.5 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 text-xs">
-                        <div><span class="font-bold">${c.name}</span> (+91 ${c.mobile})</div>
-                        <div class="flex gap-2">
-                            <button onclick="sendWhatsApp('${c.mobile}')" class="bg-emerald-600 hover:bg-emerald-500 text-white px-2.5 py-1 rounded-lg font-bold"><i class="fa-brands fa-whatsapp"></i></button>
-                            <button onclick="sendSMS('${c.mobile}')" class="bg-indigo-600 hover:bg-indigo-500 text-white px-2.5 py-1 rounded-lg font-bold"><i class="fa-solid fa-message"></i></button>
-                        </div>
-                    </div>
-                `;
-            });
-            loadBroadcastTemplate();
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `Shaurya_Statement_${cust.mobile}_${months}M.csv`;
+            link.click();
         }
 
-        let selectedMobileForModal = null;
-        function openPointModal(mobile) {
-            selectedMobileForModal = mobile;
-            const cust = appState.customers.find(c => c.mobile === mobile);
-            if (!cust) return;
-            document.getElementById('modalCustName').innerText = cust.name;
-            document.getElementById('modalCurrentPoints').innerText = cust.points;
-            document.getElementById('modalAuditNote').value = '';
-            document.getElementById('pointModal').classList.remove('hidden');
-        }
-
-        function closePointModal() { document.getElementById('pointModal').classList.add('hidden'); }
-
-        function savePointAdjustment() {
-            const cust = appState.customers.find(c => c.mobile === selectedMobileForModal);
-            if (!cust) return;
-            const action = document.getElementById('modalActionType').value;
-            const val = parseInt(document.getElementById('modalPointsVal').value) || 0;
-            const note = document.getElementById('modalAuditNote').value.trim() || 'Admin Adjustment';
-
-            if (action === 'add') {
-                cust.points += val;
-                cust.history.push({ date: new Date().toISOString().split('T')[0], note: `Admin Added: ${note}`, points: val });
+        // ==================== OWNER PORTAL LOGIC (PASSWORD: 1993) ====================
+        function verifyOwnerPassword() {
+            const pass = document.getElementById('ownerPassInput').value.trim();
+            if (pass === OWNER_PASS) {
+                state.ownerUnlocked = true;
+                document.getElementById('ownerLockCard').classList.add('hidden');
+                document.getElementById('ownerUnlockedDashboard').classList.remove('hidden');
+                refreshOwnerDashboardAll();
             } else {
-                cust.points = Math.max(0, cust.points - val);
-                cust.history.push({ date: new Date().toISOString().split('T')[0], note: `Admin Deduction: ${note}`, points: -val });
+                alert("❌ गलत पासवर्ड! कृपया सही ओनर पासवर्ड डालें।");
             }
-            saveToStorage();
-            closePointModal();
-            renderOwnerPortal();
-            alert('Points updated successfully.');
         }
 
-        const templates = {
-            loan: "Hello! Instant low-interest loans are available at Shaurya Enterprises. Contact us now!",
-            pharmacy: "Special discount on Online Pharmacy orders at Shaurya Enterprises. Order today!",
-            recharge: "Money transfer, cash withdrawal & recharge services are fully active at Shaurya Enterprises, Noida.",
-            custom: "Dear Customer, important service update from Shaurya Enterprises."
+        function lockOwnerPortal() {
+            state.ownerUnlocked = false;
+            document.getElementById('ownerPassInput').value = '';
+            document.getElementById('ownerUnlockedDashboard').classList.add('hidden');
+            document.getElementById('ownerLockCard').classList.remove('hidden');
+        }
+
+        function switchOwnerSubTab(tab) {
+            const sUpi = document.getElementById('ownerSubUpi');
+            const sDir = document.getElementById('ownerSubDirectory');
+            const sBrd = document.getElementById('ownerSubBroadcast');
+
+            const bUpi = document.getElementById('ownerTabUpiBtn');
+            const bDir = document.getElementById('ownerTabDirBtn');
+            const bBrd = document.getElementById('ownerTabBroadBtn');
+
+            sUpi.classList.add('hidden');
+            sDir.classList.add('hidden');
+            sBrd.classList.add('hidden');
+
+            const inactiveClass = "bg-white/10 hover:bg-white/20 text-white font-bold p-4 rounded-2xl text-left flex items-center gap-3 border border-white/15 transition cursor-pointer";
+            const activeClass = "bg-amber-400 text-slate-950 font-black p-4 rounded-2xl text-left flex items-center gap-3 shadow-lg transition cursor-pointer";
+
+            bUpi.className = inactiveClass;
+            bDir.className = inactiveClass;
+            bBrd.className = inactiveClass;
+
+            if (tab === 'upi') {
+                sUpi.classList.remove('hidden');
+                bUpi.className = activeClass;
+            } else if (tab === 'directory') {
+                sDir.classList.remove('hidden');
+                bDir.className = activeClass;
+            } else if (tab === 'broadcast') {
+                sBrd.classList.remove('hidden');
+                bBrd.className = activeClass;
+            }
+        }
+
+        function refreshOwnerDashboardAll() {
+            // Update Top Stats
+            document.getElementById('statTotalCust').innerText = state.customers.length;
+            document.getElementById('statPaidCust').innerText = state.customers.filter(c => c.paid).length;
+            const totalCoins = state.customers.reduce((acc, c) => acc + (Number(c.points) || 0), 0);
+            document.getElementById('statTotalCoins').innerText = totalCoins;
+            document.getElementById('statCurrentFee').innerText = state.regFee;
+
+            // Update UPI Fee Preview
+            document.getElementById('customFeeInput').value = state.regFee;
+            document.getElementById('ownerPreviewFeeText').innerText = state.regFee;
+            generateQRCodeInto('ownerQrPreview', state.regFee);
+
+            // Populate Customer Popup Dropdown in Directory
+            const popupSelect = document.getElementById('ownerCustomerPopupSelect');
+            popupSelect.innerHTML = '';
+            state.customers.forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c.mobile;
+                opt.innerText = `${c.name} (+91 ${c.mobile}) — ${c.points} Coins [${c.paid ? 'Paid' : 'Not Paid'}]`;
+                popupSelect.appendChild(opt);
+            });
+
+            if (state.customers.length > 0) {
+                const targetMob = state.selectedOwnerCustMobile && state.customers.some(c => c.mobile === state.selectedOwnerCustMobile)
+                    ? state.selectedOwnerCustMobile
+                    : state.customers[0].mobile;
+                popupSelect.value = targetMob;
+                selectCustomerInOwnerDirectory(targetMob);
+            }
+
+            // Populate Broadcast Center
+            autoSetBroadcastMessage();
+            renderOwnerBroadcastList();
+        }
+
+        function setOwnerFeeAmount(amt) {
+            state.regFee = Number(amt);
+            saveStateToCloudAndLocal();
+            refreshOwnerDashboardAll();
+            alert(`✅ रजिस्ट्रेशन UPI फीस ₹${state.regFee} सेट कर दी गई है!`);
+        }
+
+        function saveCustomFeeAmount() {
+            const val = Number(document.getElementById('customFeeInput').value);
+            if (!val || val < 1) {
+                alert("कृपया सही अमाउंट डालें!");
+                return;
+            }
+            setOwnerFeeAmount(val);
+        }
+
+        // Owner Directory: Select Customer & Show Edit + History
+        function selectCustomerInOwnerDirectory(mobile) {
+            state.selectedOwnerCustMobile = mobile;
+            const cust = state.customers.find(c => c.mobile === mobile);
+            if (!cust) return;
+
+            document.getElementById('editCustName').value = cust.name;
+            document.getElementById('editCustMobile').value = cust.mobile;
+            document.getElementById('editCustId').value = cust.idNum;
+            document.getElementById('editCustPaidStatus').value = cust.paid ? "true" : "false";
+            document.getElementById('ownerSelectedCoinBal').innerText = cust.points;
+
+            // Render this customer's full history for owner
+            const hBody = document.getElementById('ownerSelectedHistoryBody');
+            hBody.innerHTML = '';
+            document.getElementById('ownerCustHistoryCount').innerText = `${cust.history.length} Records`;
+
+            [...cust.history].reverse().forEach(h => {
+                const pos = h.points >= 0;
+                hBody.innerHTML += `
+                    <tr class="hover:bg-white dark:hover:bg-slate-900">
+                        <td class="p-2.5 text-slate-500 font-semibold">${h.date}</td>
+                        <td class="p-2.5 font-bold">${h.note}</td>
+                        <td class="p-2.5 text-right font-black ${pos ? 'text-emerald-600' : 'text-rose-600'}">${pos ? '+' : ''}${h.points}</td>
+                    </tr>
+                `;
+            });
+        }
+
+        function saveCustomerEditedDetails() {
+            const cust = state.customers.find(c => c.mobile === state.selectedOwnerCustMobile);
+            if (!cust) return;
+
+            cust.name = document.getElementById('editCustName').value.trim() || cust.name;
+            cust.mobile = cleanMobileNumber(document.getElementById('editCustMobile').value) || cust.mobile;
+            cust.idNum = document.getElementById('editCustId').value.trim() || cust.idNum;
+            cust.paid = document.getElementById('editCustPaidStatus').value === "true";
+
+            state.selectedOwnerCustMobile = cust.mobile;
+            saveStateToCloudAndLocal();
+            refreshOwnerDashboardAll();
+            alert("✅ कस्टमर का डिटेल सफलतापूर्वक अपडेट हो गया!");
+        }
+
+        function deleteSelectedCustomer() {
+            const cust = state.customers.find(c => c.mobile === state.selectedOwnerCustMobile);
+            if (!cust) return;
+            if (!confirm(`क्या आप वाकई ${cust.name} का अकाउंट डिलीट करना चाहते हैं?`)) return;
+
+            state.customers = state.customers.filter(c => c.mobile !== state.selectedOwnerCustMobile);
+            state.selectedOwnerCustMobile = state.customers[0]?.mobile || null;
+            saveStateToCloudAndLocal();
+            refreshOwnerDashboardAll();
+        }
+
+        function submitOwnerPointChange() {
+            const cust = state.customers.find(c => c.mobile === state.selectedOwnerCustMobile);
+            if (!cust) return;
+
+            const action = document.getElementById('ownerPointAction').value;
+            const amount = parseInt(document.getElementById('ownerPointAmount').value) || 0;
+            const note = document.getElementById('ownerPointNote').value.trim();
+
+            if (amount <= 0 || !note) {
+                alert("कृपया पॉइंट संख्या और किस बेसिस पर पॉइंट जोड़ा/घटाया जा रहा है (Note) ज़रूर लिखें!");
+                return;
+            }
+
+            const today = new Date().toISOString().split('T')[0];
+            if (action === 'add') {
+                cust.points += amount;
+                cust.history.push({ date: today, note: note, points: amount });
+            } else {
+                cust.points = Math.max(0, cust.points - amount);
+                cust.history.push({ date: today, note: `Deducted: ${note}`, points: -amount });
+            }
+
+            document.getElementById('ownerPointNote').value = '';
+            saveStateToCloudAndLocal();
+            refreshOwnerDashboardAll();
+            alert(`✅ ${cust.name} के वॉलेट में पॉइंट अपडेट हो गए! नया बैलेंस: ${cust.points} Coins`);
+        }
+
+        // Owner Broadcast Messenger Center
+        const broadcastTemplates = {
+            loan: "नमस्ते {name} जी! 🏦 SHAURYA ENTERPRISES (Powered by SV Fintech) में आपके लिए तुरंत कम ब्याज पर पर्सनल और बिजनेस लोन की सुविधा उपलब्ध है। आवेदन करने के लिए अभी पोर्टल खोलें: https://rhlsig.github.io/RNS-FINANCE/ या संपर्क करें: 9250525720",
+            recharge: "नमस्ते {name} जी! 📱 SHAURYA ENTERPRISES से मोबाइल और DTH रिचार्ज करवाने पर चल रहा है बंपर कैशबैक कॉइन ऑफर! आपके वॉलेट में अभी {coins} Coins हैं (4 Coins = ₹1)।",
+            cash: "नमस्ते {name} जी! 💸 हमारे यहाँ आधार से पैसा निकालने (AEPS) और मनी ट्रांसफर (जमा/निकासी) पर विशेष डिस्काउंट और रिवॉर्ड कॉइन मिल रहे हैं। पधारें: नोएडा, नियर संडे मार्केट।",
+            pharmacy: "नमस्ते {name} जी! 💊 SHAURYA ENTERPRISES के ऑनलाइन फार्मेसी स्टोर पर सभी अंग्रेजी दवाओं पर भारी छूट चल रही है! घर बैठे दवा मंगाने के लिए क्लिक करें: https://rhlsig.github.io/RNS-PHARMACY/",
+            coins: "नमस्ते {name} जी! 🪙 आपके SHAURYA ENTERPRISES लॉयल्टी वॉलेट में कुल {coins} Coins (वैल्यू: ₹{rupees}) जमा हैं। आप इन्हें किसी भी सर्विस या मंथली विड्रॉ में इस्तेमाल कर सकते हैं!"
         };
 
-        function loadBroadcastTemplate() {
-            const key = document.getElementById('broadcastTemplateSelect').value;
-            document.getElementById('broadcastMessageBox').value = templates[key] || '';
+        function autoSetBroadcastMessage() {
+            const topic = document.getElementById('broadcastTopicSelect').value;
+            document.getElementById('broadcastTextArea').value = broadcastTemplates[topic] || "";
         }
 
-        function sendWhatsApp(mobile) {
-            const msg = encodeURIComponent(document.getElementById('broadcastMessageBox').value);
-            window.open(`https://wa.me/91${mobile}?text=${msg}`, '_blank');
+        function copyBroadcastText() {
+            const txt = document.getElementById('broadcastTextArea').value;
+            navigator.clipboard.writeText(txt);
+            alert("✅ मैसेज कॉपी हो गया!");
         }
 
-        function sendSMS(mobile) {
-            const msg = encodeURIComponent(document.getElementById('broadcastMessageBox').value);
-            window.open(`sms:+91${mobile}?body=${msg}`, '_blank');
+        function renderOwnerBroadcastList() {
+            const container = document.getElementById('ownerBroadcastCustomerRows');
+            const q = (document.getElementById('broadcastSearchInput')?.value || '').toLowerCase();
+            container.innerHTML = '';
+
+            // Sort A to Z by Customer Name
+            const sorted = [...state.customers].sort((a, b) => a.name.localeCompare(b.name));
+
+            sorted.filter(c => c.name.toLowerCase().includes(q) || c.mobile.includes(q)).forEach(c => {
+                container.innerHTML += `
+                    <div class="bg-slate-50 dark:bg-slate-800 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-700 flex flex-wrap justify-between items-center gap-3 hover:border-indigo-500 transition">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="font-black text-sm">${c.name}</span>
+                                <span class="bg-amber-100 text-amber-800 text-[11px] font-extrabold px-2 py-0.5 rounded-md">${c.points} Coins</span>
+                            </div>
+                            <p class="text-xs text-slate-500 font-semibold">+91 ${c.mobile} | ID: ${c.idNum}</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="dispatchMessageToCustomer('${c.mobile}', 'whatsapp')" class="bg-emerald-600 hover:bg-emerald-500 text-white font-black px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow cursor-pointer" title="Send on WhatsApp">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
+                            </button>
+                            <button onclick="dispatchMessageToCustomer('${c.mobile}', 'sms')" class="bg-indigo-600 hover:bg-indigo-500 text-white font-black px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5 shadow cursor-pointer" title="Send SMS">
+                                <i class="fa-solid fa-comment-sms text-sm"></i> SMS
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
         }
+
+        function dispatchMessageToCustomer(mobile, channel) {
+            const cust = state.customers.find(c => c.mobile === mobile);
+            if (!cust) return;
+
+            let rawMsg = document.getElementById('broadcastTextArea').value;
+            rawMsg = rawMsg
+                .replace(/\{name\}/g, cust.name)
+                .replace(/\{coins\}/g, cust.points)
+                .replace(/\{rupees\}/g, (cust.points / 4).toFixed(2));
+
+            if (channel === 'whatsapp') {
+                window.open(`https://wa.me/91${cust.mobile}?text=${encodeURIComponent(rawMsg)}`, '_blank');
+            } else {
+                window.open(`sms:+91${cust.mobile}?body=${encodeURIComponent(rawMsg)}`, '_blank');
+            }
+        }
+
+        // ==================== FEEDBACK SYSTEM (Latest 3 + View More) ====================
+        function toggleFeedbackForm() {
+            document.getElementById('feedbackFormBox').classList.toggle('hidden');
+        }
+
+        function submitNewFeedback() {
+            const name = document.getElementById('fbUserName').value.trim();
+            const mobile = cleanMobileNumber(document.getElementById('fbUserMobile').value);
+            const rating = parseInt(document.getElementById('fbUserRating').value) || 5;
+            const note = document.getElementById('fbUserNote').value.trim();
+
+            if (!name || mobile.length !== 10 || !note) {
+                alert("कृपया अपना नाम, 10 अंकों का मोबाइल नंबर और फीडबैक नोट भरें!");
+                return;
+            }
+
+            state.feedbacks.unshift({
+                name,
+                mobile,
+                rating,
+                note,
+                date: new Date().toISOString().split('T')[0]
+            });
+
+            saveStateToCloudAndLocal();
+            document.getElementById('fbUserName').value = '';
+            document.getElementById('fbUserMobile').value = '';
+            document.getElementById('fbUserNote').value = '';
+            document.getElementById('feedbackFormBox').classList.add('hidden');
+            renderFeedbackCards();
+            alert("🙏 आपके बहुमूल्य फीडबैक के लिए धन्यवाद!");
+        }
+
+        function renderFeedbackCards() {
+            const top3Grid = document.getElementById('top3FeedbackGrid');
+            const moreGrid = document.getElementById('moreFeedbackGrid');
+            const viewMoreBtn = document.getElementById('viewMoreFbBtn');
+
+            top3Grid.innerHTML = '';
+            moreGrid.innerHTML = '';
+
+            const top3 = state.feedbacks.slice(0, 3);
+            const rest = state.feedbacks.slice(3);
+
+            const buildCard = (fb) => {
+                const stars = '⭐'.repeat(fb.rating);
+                const maskedMob = fb.mobile ? `+91 ******${String(fb.mobile).slice(-4)}` : '';
+                return `
+                    <div class="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 flex flex-col justify-between space-y-3 shadow-sm">
+                        <div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h5 class="font-black text-sm">${fb.name}</h5>
+                                    <p class="text-[11px] text-slate-400 font-semibold">${maskedMob}</p>
+                                </div>
+                                <span class="text-xs">${stars}</span>
+                            </div>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 mt-3 leading-relaxed font-medium">"${fb.note}"</p>
+                        </div>
+                        <div class="text-[10px] text-slate-400 font-bold border-t border-slate-200 dark:border-slate-700 pt-2 flex justify-between">
+                            <span>Verified Customer</span>
+                            <span>${fb.date}</span>
+                        </div>
+                    </div>
+                `;
+            };
+
+            top3.forEach(fb => top3Grid.innerHTML += buildCard(fb));
+            rest.forEach(fb => moreGrid.innerHTML += buildCard(fb));
+
+            if (rest.length === 0) {
+                viewMoreBtn.classList.add('hidden');
+            } else {
+                viewMoreBtn.classList.remove('hidden');
+                viewMoreBtn.innerHTML = state.showAllFeedbacks
+                    ? `Show Less Reviews <i class="fa-solid fa-chevron-up ml-1"></i>`
+                    : `View More Reviews (${rest.length} More) <i class="fa-solid fa-chevron-down ml-1"></i>`;
+            }
+        }
+
+        function toggleViewMoreFeedbacks() {
+            state.showAllFeedbacks = !state.showAllFeedbacks;
+            const moreGrid = document.getElementById('moreFeedbackGrid');
+            if (state.showAllFeedbacks) {
+                moreGrid.classList.remove('hidden');
+            } else {
+                moreGrid.classList.add('hidden');
+            }
+            renderFeedbackCards();
+        }
+
+        // Initialize on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            calcEMI();
+            renderFeedbackCards();
+        });
     </script>
 </body>
 </html>
